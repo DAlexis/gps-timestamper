@@ -5,12 +5,22 @@ project(gps-timestamper C ASM)
 set(EXE_SOURCES
     Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f407xx.asm
     
+    Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
+    Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
+    Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
+    Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
+    Src/usbd_cdc_if.c
+    Src/usbd_desc.c
     Src/main.c
     Src/stm32f4xx_hal_msp.c
     Src/stm32f4xx_it.c
+    Src/usbd_conf.c
+    Src/usb_device.c
     Src/system_stm32f4xx.c
+    Drivers/newlib/_sbrk.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
@@ -22,11 +32,22 @@ set(EXE_SOURCES
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c
+    Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
-    
+
+    Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h
+    Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
+    Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
+    Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
+    Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
+    Inc/usb_device.h
+    Inc/usbd_conf.h
+    Inc/usbd_cdc_if.h
     Inc/stm32f4xx_it.h
     Inc/stm32f4xx_hal_conf.h
     Inc/main.h
+    Inc/usbd_desc.h
     Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
     Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
     Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -48,7 +69,10 @@ set(EXE_SOURCES
     Drivers/CMSIS/Include/core_cmSimd.h
     Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
     Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+    Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
     Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
+    Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
+    Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
     Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h
     Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
     Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
@@ -70,6 +94,8 @@ include_directories(
     Drivers/CMSIS/Device/ST/STM32F4xx/Include
     Drivers/CMSIS/Include/
     Drivers/STM32F4xx_HAL_Driver/Inc
+    Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
+    Middlewares/ST/STM32_USB_Device_Library/Core/Inc
 )
 
 set(ELF_NAME ${PROJECT_NAME}.elf)
