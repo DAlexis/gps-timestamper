@@ -19,7 +19,7 @@ fi
 
 (
 cd $dir
-cmake -G"Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug ../../c-sources
+cmake -G"Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug ../../c-sources/gps-timestamper
 
 # Patching definitions for C++11 support
 sed -i s/199711L/201103L/ .cproject

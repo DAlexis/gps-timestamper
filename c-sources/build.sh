@@ -7,7 +7,7 @@ echo "Usage: ./build.sh <debug|release>. Debug is default"
 cfg="Debug"
 build_dir_prefix="./build"
 build_dir=$build_dir_prefix"/debug"
-source_dir_from_build_dir="../../"
+source_dir_from_build_dir="../../gps-timestamper"
 
 if [ "$1" == "release" ];
 then
