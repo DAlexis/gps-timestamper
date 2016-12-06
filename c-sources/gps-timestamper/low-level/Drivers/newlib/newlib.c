@@ -13,6 +13,8 @@
 # include <stm32f4xx_hal.h>
 #endif
 
+#define USB_WRITE_MIN_DELAY   1
+
 //extern uint32_t __get_MSP(void);
 
 #ifdef USE_UART_DEBUG_OUTPUT
@@ -22,6 +24,7 @@
 
 #undef errno
 extern int errno;
+
 
 char *__env[1] = { 0 };
 char **environ = __env;
@@ -203,13 +206,16 @@ int _wait(int *status)
 
 int _write(int file, char *ptr, int len)
 {
+	static uint32_t lastTime = 0;
+	uint32_t time = HAL_GetTick();
     switch (file)
     {
     case STDOUT_FILENO: // stdout
-    	CDC_Transmit_FS(ptr, len);
-        break;
     case STDERR_FILENO: // stderr
+    	if (time - lastTime < USB_WRITE_MIN_DELAY)
+    		HAL_Delay(USB_WRITE_MIN_DELAY);
     	CDC_Transmit_FS(ptr, len);
+    	lastTime =  HAL_GetTick();
         break;
     default:
         errno = EBADF;

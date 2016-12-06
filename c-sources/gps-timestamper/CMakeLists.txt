@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(gps-timestamper C ASM)
+project(gps-timestamper C CXX ASM)
 
 FILE(GLOB_RECURSE ASM_SOURCES *.s)
 FILE(GLOB_RECURSE C_SOURCES *.c )
@@ -17,15 +17,16 @@ set(EXE_SOURCES
 )
 
 include_directories(
-    Inc
-    Drivers/CMSIS/Device/ST/STM32F4xx/Include
-    Drivers/CMSIS/Include/
-    Drivers/STM32F4xx_HAL_Driver/Inc
-    Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
-    Middlewares/ST/STM32_USB_Device_Library/Core/Inc
-    Middlewares/Third_Party/FreeRTOS/Source/include
-    Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS
-    Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F
+    low-level/Inc
+    low-level/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    low-level/Drivers/CMSIS/Include/
+    low-level/Drivers/STM32F4xx_HAL_Driver/Inc
+    low-level/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
+    low-level/Middlewares/ST/STM32_USB_Device_Library/Core/Inc
+    low-level/Middlewares/Third_Party/FreeRTOS/Source/include
+    low-level/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS
+    low-level/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F
+    high-level/include
 )
 
 set(ELF_NAME ${PROJECT_NAME}.elf)
@@ -33,7 +34,7 @@ set(BIN_NAME ${PROJECT_NAME}.bin)
 set(MAP_NAME ${PROJECT_NAME}.map)
 
 set(LDSCRIPTS "-T STM32F407VGTx_FLASH.ld")
-set(LDSCRIPTS_DIR "${PROJECT_SOURCE_DIR}")
+set(LDSCRIPTS_DIR "${PROJECT_SOURCE_DIR}/low-level")
 
 set(CMAKE_C_COMPILER arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER arm-none-eabi-g++)

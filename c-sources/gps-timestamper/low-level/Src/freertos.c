@@ -48,7 +48,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */     
-
+#include "gps-timestamper-entry-point.h"
 /* USER CODE END Includes */
 
 /* Variables -----------------------------------------------------------------*/
@@ -91,7 +91,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 1024);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -110,6 +110,10 @@ void StartDefaultTask(void const * argument)
   MX_USB_DEVICE_Init();
 
   /* USER CODE BEGIN StartDefaultTask */
+  osDelay(2000);
+  printf("FreeFROS running successfuly\n");
+  entryPoint();
+
   /*
   while (1)
 	{
