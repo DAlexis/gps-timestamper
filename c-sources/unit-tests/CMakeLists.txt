@@ -12,6 +12,7 @@ include_directories (
 set(EXE_SOURCES
     nmea-parser-tests.cpp
     ${PROJECT_SOURCE_DIR}/../gps-timestamper/high-level/src/nmea-parser.cpp
+    ${PROJECT_SOURCE_DIR}/../gps-timestamper/high-level/src/gps-data.cpp
 )
 
 add_executable(${PROJECT_NAME} ${EXE_SOURCES})

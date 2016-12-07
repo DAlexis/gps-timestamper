@@ -12,11 +12,13 @@
 #include "cmsis_os.h"
 
 extern UART_HandleTypeDef huart3;
+extern TIM_HandleTypeDef htim2;
 
 SINGLETON_IN_CPP(GPSTimestamper)
 
 GPSTimestamper::GPSTimestamper() :
-	m_nmea(&huart3)
+	m_nmea(&huart3),
+	m_precTimer(&htim2)
 {
 }
 
@@ -26,8 +28,10 @@ void GPSTimestamper::run()
 	NMEAParser parser;
 
 	m_nmea.run();
+	m_precTimer.run();
 	for (;;)
 	{
+		m_precTimer.checkForGPSDisconnect();
 		if (m_nmea.updatedString())
 		{
 			printf("DBG: GPS says: %s\n", m_nmea.getCurrentGPSString());
@@ -39,6 +43,9 @@ void GPSTimestamper::run()
 						parser.result().lat,
 						parser.result().lon);
 			}
+			printf("Timer: %d\n", (int) m_precTimer.getValue());
+			printf("Timer capture reg: %d\n", (int) htim2.Instance->CCR1);
+			printf("Timer capture reg: %d\n", (int) __HAL_TIM_GetCompare (&htim2, TIM_CHANNEL_1));
 		}
 	}
 }

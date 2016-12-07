@@ -11,9 +11,9 @@
 
 NMEAReceiver* receiverConnectedToInterrupt = nullptr;
 
-NMEAReceiver::NMEAReceiver(UART_HandleTypeDef* huart)
+NMEAReceiver::NMEAReceiver(UART_HandleTypeDef* huart) :
+		m_huart(huart)
 {
-	m_huart = huart;
 }
 
 const char* NMEAReceiver::getCurrentGPSString()

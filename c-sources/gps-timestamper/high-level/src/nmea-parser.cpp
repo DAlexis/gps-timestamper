@@ -2,28 +2,6 @@
 #include "macro.hpp"
 #include <string.h>
 
-PosTime::PosTime()
-{
-	clear();
-}
-
-void PosTime::clear()
-{
-	lat[0] = '\0';
-	lon[0] = '\0';
-	time[0] = '\0';
-}
-
-bool PosTime::hasData() const
-{
-	return (lat[0] != '\0');
-}
-
-PosTime::operator bool() const
-{
-	return hasData();
-}
-
 void NMEAParser::parse(const char* str)
 {
 	// This function may be a bit optimized: removing shift in the end
@@ -40,7 +18,7 @@ void NMEAParser::parse(const char* str)
 		return;
 	}
 
-	char latChar[PosTime::maxStrLen] = "", lonChar[PosTime::maxStrLen] = "";
+	char latChar[GPSData::maxStrLen] = "", lonChar[GPSData::maxStrLen] = "";
 	char* targets[] = {m_result.time, m_result.lat, latChar, m_result.lon, lonChar};
 
 	unsigned int word = 0;
@@ -52,7 +30,7 @@ void NMEAParser::parse(const char* str)
 		for (; str[i] != '\0' && str[i] != ','; i++, j++)
 		{
 			targets[word][j] = str[i];
-			if (j == PosTime::maxStrLen - 2)
+			if (j == GPSData::maxStrLen - 2)
 				break;
 		}
 		targets[word][j] = '\0';
@@ -72,7 +50,7 @@ void NMEAParser::parse(const char* str)
 	}
 
 	// Now we should attach letters to GPS coordinates
-	for (int i=PosTime::maxStrLen-1; i != 0; i--)
+	for (int i=GPSData::maxStrLen-1; i != 0; i--)
 	{
 		m_result.lat[i] = m_result.lat[i-1];
 		m_result.lon[i] = m_result.lon[i-1];
@@ -81,7 +59,7 @@ void NMEAParser::parse(const char* str)
 	m_result.lon[0] = lonChar[0];
 }
 
-const PosTime& NMEAParser::result() const
+const GPSData& NMEAParser::result() const
 {
 	return m_result;
 }

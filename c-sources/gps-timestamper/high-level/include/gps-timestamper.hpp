@@ -10,6 +10,7 @@
 
 #include "macro.hpp"
 #include "nmea-receiver.hpp"
+#include "precision-timer.hpp"
 
 class GPSTimestamper
 {
@@ -21,6 +22,7 @@ public:
 private:
 	GPSTimestamper();
 	NMEAReceiver m_nmea;
+	PrecisionTimer m_precTimer;
 };
 
 #endif /* HIGH_LEVEL_INCLUDE_GPS_TIMESTAMPER_HPP_ */
