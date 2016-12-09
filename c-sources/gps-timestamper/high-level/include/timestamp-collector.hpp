@@ -32,6 +32,7 @@ private:
 	void nmeaMonitoringLoop();
 	void queueMonitorLoop();
 
+	char m_reservedGPSString[NMEAReceiver::GPSstringMaxLen];
 	NMEAReceiver* m_nmea;
 	PrecisionTimer* m_precisionTimer;
 

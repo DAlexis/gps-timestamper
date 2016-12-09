@@ -147,10 +147,30 @@ private:
 	xQueueHandle m_handle;
 };
 
+class Mutex
+{
+public:
+	Mutex()		{ handle = xSemaphoreCreateMutex(); }
+	~Mutex() 	{ if (handle) vSemaphoreDelete(handle); }
 
+	inline bool lock(uint32_t timeout = portMAX_DELAY)
+		{ return (xSemaphoreTake( handle, timeout ) == pdTRUE); }
 
+	inline void unlock()
+		{ xSemaphoreGive( handle ); }
 
-
+	inline bool isLocked()
+	{
+		bool wasNotLocked = lock(0);
+		if (wasNotLocked) {
+			unlock();
+			return false;
+		}
+		return true;
+	}
+private:
+	xSemaphoreHandle handle = nullptr;
+};
 
 
 #endif /* GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_OS_WRAPPERS_HPP_ */

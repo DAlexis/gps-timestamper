@@ -13,7 +13,14 @@
 class OutputFormatter
 {
 public:
+	void parse(const OutputData& data);
+	const char* result() const;
+
 private:
+	constexpr static int maxResultSize = 100;
+	constexpr static int bufferForDoubleSize = 20;
+	char m_result[maxResultSize];
+	char m_bufferForDouble[bufferForDoubleSize];
 };
 
 #endif /* GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_OUTPUT_FORMATTER_HPP_ */

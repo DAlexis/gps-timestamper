@@ -30,11 +30,12 @@ void PrecisionTimer::checkForGPSDisconnect()
 		return;
 
 	// Ticks since last GPS signal
-	uint32_t delay = m_htim->Instance->CCR1 - m_lastGPS;
+	uint32_t delay = m_htim->Instance->CNT - m_lastGPS;
 	constexpr uint32_t timeout = 80000000; // This value should be corrected
 	if (delay > timeout)
 	{
 		m_gpsCount = 0;
+		printf("DBG: GPS disconnect detected, disabling timestamping\n");
 	}
 }
 
@@ -65,6 +66,9 @@ void PrecisionTimer::captureIRQHandler(CaptureSource source, uint32_t value)
 			m_ppsCallback();
 		break;
 	case CaptureSource::signal:
+		if (m_gpsCount < 2)
+			break;
+
 		// We have unsigned arithmetics so we will get always valid positive numbers below
 		uint32_t gpsPeriod   = m_lastGPS - m_prevGPS;
 		uint32_t signalDelay = value - m_lastGPS;
@@ -93,9 +97,9 @@ extern "C" {
 		if (precisionTimerConnectedToInterrupt && precisionTimerConnectedToInterrupt->timerHandler() == htim)
 		{
 			if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
-				precisionTimerConnectedToInterrupt->captureIRQHandler(PrecisionTimer::CaptureSource::GPS, htim->Instance->CCR1);
+				precisionTimerConnectedToInterrupt->captureIRQHandler(PrecisionTimer::CaptureSource::signal, htim->Instance->CCR1);
 			else if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2)
-				precisionTimerConnectedToInterrupt->captureIRQHandler(PrecisionTimer::CaptureSource::signal, htim->Instance->CCR2);
+				precisionTimerConnectedToInterrupt->captureIRQHandler(PrecisionTimer::CaptureSource::GPS, htim->Instance->CCR2);
 		}
 	}
 }

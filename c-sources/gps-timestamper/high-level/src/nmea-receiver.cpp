@@ -45,7 +45,7 @@ void NMEAReceiver::uartRXCallback()
 
 		targetByte = m_buffer;
 		m_bufferOverflow = false; // Now we are go from clear list and data is consisted by default
-	} else if (targetByte - m_buffer == buffersize-1)
+	} else if (targetByte - m_buffer == GPSstringMaxLen-1)
 		m_bufferOverflow = true;
 	else
 		targetByte++;

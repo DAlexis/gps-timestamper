@@ -64,6 +64,7 @@ void TimestampCollector::nmeaMonitoringLoop()
 			m_nmeaParser.parse(m_nmea->getCurrentGPSString());
 			if (m_nmeaParser.result())
 			{
+				printf("DBG: %s\n", m_nmea->getCurrentGPSString());
 				taskENTER_CRITICAL();
 					m_lastGPSData = m_nmeaParser.result();
 				taskEXIT_CRITICAL();

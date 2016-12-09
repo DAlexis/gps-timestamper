@@ -14,6 +14,8 @@
 class NMEAReceiver
 {
 public:
+	constexpr static int GPSstringMaxLen = 200;
+
 	NMEAReceiver(UART_HandleTypeDef* huart);
 	const char* getCurrentGPSString();
 	bool updatedString();
@@ -22,7 +24,7 @@ public:
 	void uartRXCallback();
 
 private:
-	constexpr static int buffersize = 200;
+
 	constexpr static int resetDelay = 500; //ms
 	enum class State
 	{
@@ -30,9 +32,9 @@ private:
 
 	void parseMsg();
 
-	char m_buffer[buffersize];
+	char m_buffer[GPSstringMaxLen];
 	char* targetByte = m_buffer;
-	char m_result[buffersize] = "";
+	char m_result[GPSstringMaxLen] = "";
 
 	bool m_updatedString = false;
 

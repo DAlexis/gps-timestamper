@@ -13,6 +13,8 @@
 # include <stm32f4xx_hal.h>
 #endif
 
+#include "cmsis_os.h"
+
 #define USB_WRITE_MIN_DELAY   1
 
 //extern uint32_t __get_MSP(void);
@@ -206,19 +208,25 @@ int _wait(int *status)
 
 int _write(int file, char *ptr, int len)
 {
+	static xSemaphoreHandle mutex = NULL;
+	if (!mutex)
+		mutex = xSemaphoreCreateMutex();
 	static uint32_t lastTime = 0;
 	uint32_t time = HAL_GetTick();
     switch (file)
     {
     case STDOUT_FILENO: // stdout
     case STDERR_FILENO: // stderr
+    	xSemaphoreTake(mutex, portMAX_DELAY);
     	if (time - lastTime < USB_WRITE_MIN_DELAY)
     		HAL_Delay(USB_WRITE_MIN_DELAY);
     	CDC_Transmit_FS(ptr, len);
     	lastTime =  HAL_GetTick();
+    	xSemaphoreGive(mutex);
         break;
     default:
         errno = EBADF;
+
         return -1;
     }
     return len;

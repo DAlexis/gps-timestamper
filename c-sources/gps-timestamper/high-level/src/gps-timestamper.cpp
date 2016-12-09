@@ -18,8 +18,11 @@ SINGLETON_IN_CPP(GPSTimestamper)
 
 GPSTimestamper::GPSTimestamper() :
 	m_nmea(&huart3),
-	m_precTimer(&htim2)
+	m_precTimer(&htim2),
+	m_collector(&m_nmea, &m_precTimer)
 {
+	m_collector.setDataReadyCallback([this] (const OutputData& data) { m_outputMaker.makeOutputSync(data); });
+
 }
 
 void GPSTimestamper::run()
@@ -29,9 +32,13 @@ void GPSTimestamper::run()
 
 	m_nmea.run();
 	m_precTimer.run();
+	m_collector.run();
 	for (;;)
 	{
 		m_precTimer.checkForGPSDisconnect();
+		//osDelay(100);
+		//printf("CCR1: %d, CCR2: %d\n", (int) htim2.Instance->CCR1, (int) htim2.Instance->CCR2);
+		/*
 		if (m_nmea.updatedString())
 		{
 			printf("DBG: GPS says: %s\n", m_nmea.getCurrentGPSString());
@@ -46,7 +53,7 @@ void GPSTimestamper::run()
 			printf("Timer: %d\n", (int) m_precTimer.getValue());
 			printf("Timer capture reg: %d\n", (int) htim2.Instance->CCR1);
 			printf("Timer capture reg: %d\n", (int) __HAL_TIM_GetCompare (&htim2, TIM_CHANNEL_1));
-		}
+		}*/
 	}
 }
 
