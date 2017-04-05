@@ -1,0 +1,202 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:stm32
+EELAYER 25 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 1 1
+Title "GPS timestamper"
+Date ""
+Rev "v1"
+Comp ""
+Comment1 ""
+Comment2 "Aleksey Bulatov"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L STM32F407VGTx U?
+U 1 1 58E4D2C5
+P 9150 5250
+F 0 "U?" H 4850 8075 50  0000 L BNN
+F 1 "STM32F407VGTx" H 13450 8075 50  0000 R BNN
+F 2 "LQFP100" H 13450 8025 50  0001 R TNN
+F 3 "" H 9150 5250 50  0001 C CNN
+	1    9150 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR?
+U 1 1 58E4D7F3
+P 8850 2050
+F 0 "#PWR?" H 8850 1900 50  0001 C CNN
+F 1 "+3.3V" H 8850 2190 50  0000 C CNN
+F 2 "" H 8850 2050 50  0001 C CNN
+F 3 "" H 8850 2050 50  0001 C CNN
+	1    8850 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8850 2250 8850 2050
+Wire Wire Line
+	8850 2150 9350 2150
+Wire Wire Line
+	8950 2150 8950 2250
+Connection ~ 8850 2150
+Wire Wire Line
+	9050 2150 9050 2250
+Connection ~ 8950 2150
+Wire Wire Line
+	9150 2150 9150 2250
+Connection ~ 9050 2150
+Wire Wire Line
+	9250 2150 9250 2250
+Connection ~ 9150 2150
+Wire Wire Line
+	9350 2150 9350 2250
+Connection ~ 9250 2150
+$Comp
+L GND #PWR?
+U 1 1 58E4D8D8
+P 8950 8300
+F 0 "#PWR?" H 8950 8050 50  0001 C CNN
+F 1 "GND" H 8950 8150 50  0000 C CNN
+F 2 "" H 8950 8300 50  0001 C CNN
+F 3 "" H 8950 8300 50  0001 C CNN
+	1    8950 8300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8950 8150 8950 8300
+Wire Wire Line
+	8950 8250 9250 8250
+Wire Wire Line
+	9050 8250 9050 8150
+Connection ~ 8950 8250
+Wire Wire Line
+	9150 8250 9150 8150
+Connection ~ 9050 8250
+Wire Wire Line
+	9250 8250 9250 8150
+Connection ~ 9150 8250
+$Comp
+L GNDA #PWR?
+U 1 1 58E4D93C
+P 9350 8300
+F 0 "#PWR?" H 9350 8050 50  0001 C CNN
+F 1 "GNDA" H 9350 8150 50  0000 C CNN
+F 2 "" H 9350 8300 50  0001 C CNN
+F 3 "" H 9350 8300 50  0001 C CNN
+	1    9350 8300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 8300 9350 8150
+$Comp
+L +3.3VA #PWR?
+U 1 1 58E4D990
+P 9450 2050
+F 0 "#PWR?" H 9450 1900 50  0001 C CNN
+F 1 "+3.3VA" H 9450 2190 50  0000 C CNN
+F 2 "" H 9450 2050 50  0001 C CNN
+F 3 "" H 9450 2050 50  0001 C CNN
+	1    9450 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 2050 9450 2250
+$Comp
+L Crystal Y?
+U 1 1 58E4DA57
+P 4400 4000
+F 0 "Y?" H 4400 4150 50  0000 C CNN
+F 1 "Crystal" H 4400 3850 50  0000 C CNN
+F 2 "" H 4400 4000 50  0001 C CNN
+F 3 "" H 4400 4000 50  0001 C CNN
+	1    4400 4000
+	0    1    1    0   
+$EndComp
+$Comp
+L C C?
+U 1 1 58E4DAFC
+P 4050 3750
+F 0 "C?" H 4075 3850 50  0000 L CNN
+F 1 "C" H 4075 3650 50  0000 L CNN
+F 2 "" H 4088 3600 50  0001 C CNN
+F 3 "" H 4050 3750 50  0001 C CNN
+	1    4050 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L C C?
+U 1 1 58E4DB41
+P 4050 4250
+F 0 "C?" H 4075 4350 50  0000 L CNN
+F 1 "C" H 4075 4150 50  0000 L CNN
+F 2 "" H 4088 4100 50  0001 C CNN
+F 3 "" H 4050 4250 50  0001 C CNN
+	1    4050 4250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4200 4250 4650 4250
+Wire Wire Line
+	4400 4150 4400 4250
+Connection ~ 4400 4250
+Wire Wire Line
+	4200 3750 4650 3750
+Wire Wire Line
+	4400 3750 4400 3850
+Wire Wire Line
+	4650 3750 4650 4150
+Connection ~ 4400 3750
+Wire Wire Line
+	3900 4250 3800 4250
+Wire Wire Line
+	3800 4250 3800 3750
+Wire Wire Line
+	3650 3750 3900 3750
+$Comp
+L GND #PWR?
+U 1 1 58E4DCB1
+P 3650 3900
+F 0 "#PWR?" H 3650 3650 50  0001 C CNN
+F 1 "GND" H 3650 3750 50  0000 C CNN
+F 2 "" H 3650 3900 50  0001 C CNN
+F 3 "" H 3650 3900 50  0001 C CNN
+	1    3650 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 3750 3650 3900
+Connection ~ 3800 3750
+$EndSCHEMATC
