@@ -7,56 +7,53 @@
 
 using namespace std;
 
-
-TEST(NmeaParser, ValidData)
+TEST(NmeaParser, ValidDataNew)
 {
-	const char validSample[] = "$GPGGA,161229.487,3723.2475,N,12158.3416,W,1,07,1.0,9.0,M,,,,0000*18";
-    NMEAParser parser;
-    
-    ASSERT_NO_THROW(parser.parse(validSample));
-    ASSERT_TRUE(parser.result());
-    ASSERT_EQ(string("161229.487"), string(parser.result().time));
-    ASSERT_EQ(string("N3723.2475"), string(parser.result().lat));
-    ASSERT_EQ(string("W12158.3416"), string(parser.result().lon));
+	const char str[] = "$GPRMC,134709.000,A,5619.4071,N,04401.4063,E,1.41,96.08,110417,,,A*5E";
+	DateTime t;
+	Position p;
+	ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
+	ASSERT_TRUE(NMEAParser::parse(str, p, t));
+	ASSERT_EQ(t.str(), string("2017-04-11 13:47:09"));
+	ASSERT_NEAR(p.lat, 56 + 19.4071 / 60.0, 1e-6);
+	ASSERT_NEAR(p.lon, 44 + 1.4063 / 60.0, 1e-6);
 }
 
-TEST(NmeaParser, InvalidData1)
+TEST(NmeaParser, InvalidData)
 {
-	const char invalidSample[] = "$GPWWWW,161229.487,3723.2475,N,12158.3416,W,1,07,1.0,9.0,M,,,,0000*18";
-    NMEAParser parser;
-    ASSERT_NO_THROW(parser.parse(invalidSample));
-    ASSERT_FALSE(parser.result());
-}
+	DateTime t;
+		Position p;
+	{
+		const char str[] = "$GPRMD,134709.000,A,5619.4071,N,04401.4063,E,1.41,96.08,110417,,,A*5E";
+		ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
+		ASSERT_FALSE(NMEAParser::parse(str, p, t)) << "Invalid header test";
+	}
 
-TEST(NmeaParser, InvalidData2)
-{
-	const char invalidSample[] = "$GPGGA,161229.487,3723.2475,,12158.3416,W,1,07,1.0,9.0,M,,,,0000*18";
-    NMEAParser parser;
-    ASSERT_NO_THROW(parser.parse(invalidSample));
-    ASSERT_FALSE(parser.result());
-}
+	{
+		const char str[] = "$GPRMC,A,5619.4071,N,04401.4063,E,1.41,96.08,110417,,,A*5E";
+		ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
+		ASSERT_FALSE(NMEAParser::parse(str, p, t)) << "Time removed test";
+	}
 
-TEST(NmeaParser, InvalidData3)
-{
-	const char invalidSample[] = "$GPGGA,161229.487,,N,12158.3416,W,1,07,1.0,9.0,M,,,,0000*18";
-    NMEAParser parser;
-    ASSERT_NO_THROW(parser.parse(invalidSample));
-    ASSERT_FALSE(parser.result());
-}
+	{
+		const char str[] = "$GPRMC,134709.000,A,5619.4071,N,04401.4063,E,1.41,96.08,1104179,,,A*5E";
+		ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
+		ASSERT_FALSE(NMEAParser::parse(str, p, t));
+	}
 
-TEST(NmeaParser, InvalidData4)
-{
-	const char invalidSample[] = "$GPGGA,141132.000,,,,,0,1,,,M,,M,,*4D";
-    NMEAParser parser;
-    ASSERT_NO_THROW(parser.parse(invalidSample));
-    ASSERT_FALSE(parser.result());
+	{
+		const char str[] = "$GPRMC,134709.000,A,5619.4071,W,04401.4063,E,1.41,96.08,110417,,,A*5E";
+		ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
+		ASSERT_FALSE(NMEAParser::parse(str, p, t)) << "Invalid N/S test";
+	}
+	{
+		const char str[] = "$GPRMC,134709.000,,A,5619.4071,N,04401.4063,E,1.41,96.08,110417,,,A*5E";
+		ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
+		ASSERT_FALSE(NMEAParser::parse(str, p, t)) << "Comma added test";
+	}
+	{
+		const char str[] = "$GPRMC,134709.000,A,5619.4071,N,04401.4063,E,1.41,96.08,990417,,,A*5E";
+		ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
+		ASSERT_FALSE(NMEAParser::parse(str, p, t)) << "Invalid date test";
+	}
 }
-
-TEST(NmeaParser, InvalidData5)
-{
-	const char invalidSample[] = "";
-    NMEAParser parser;
-    ASSERT_NO_THROW(parser.parse(invalidSample));
-    ASSERT_FALSE(parser.result());
-}
-

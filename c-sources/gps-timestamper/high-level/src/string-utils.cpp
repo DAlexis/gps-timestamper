@@ -5,8 +5,8 @@
  *      Author: dalexies
  */
 
-#include "string-utils.h"
 #include <stdint.h>
+#include <string-utils.hpp>
 
 int double2str(char* buffer, double value, unsigned int precision, unsigned int maxBufferLen)
 {
@@ -66,4 +66,11 @@ int double2str(char* buffer, double value, unsigned int precision, unsigned int 
 	buffer[roundCount+1+fracCount+negative] = '\0';
 	return 0;
 
+}
+
+std::string toString(double value, unsigned int precision)
+{
+	char buf[20];
+	double2str(buf, value, precision, 20);
+	return std::string(buf);
 }

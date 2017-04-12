@@ -102,12 +102,12 @@ public:
 		m_handle = xQueueCreate(size, sizeof(T));
 	}
 
-	void pushBack(T&& obj, TickType_t timeToWait = portMAX_DELAY)
+	void pushBack(const T& obj, TickType_t timeToWait = portMAX_DELAY)
 	{
 		xQueueSendToBack(m_handle, &obj, timeToWait);
 	}
 
-	void pushFront(T&& obj, TickType_t timeToWait = portMAX_DELAY)
+	void pushFront(const T& obj, TickType_t timeToWait = portMAX_DELAY)
 	{
 		xQueueSendToFront(m_handle, &obj, timeToWait);
 	}
@@ -117,14 +117,14 @@ public:
 		xQueueReceive(m_handle, &target, timeToWait);
 	}
 
-	void pushBackFromISR(T& obj)
+	void pushBackFromISR(const T& obj)
 	{
 		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 		xQueueSendToBackFromISR(m_handle, &obj, &xHigherPriorityTaskWoken);
 		portYIELD_FROM_ISR (xHigherPriorityTaskWoken);
 	}
 
-	void pushFrontFromISR(T& obj)
+	void pushFrontFromISR(const T& obj)
 	{
 		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 		xQueueSendToFrontFromISR(m_handle, &obj, xHigherPriorityTaskWoken);

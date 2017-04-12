@@ -6,10 +6,46 @@
  */
 
 #include "output-maker.hpp"
-#include "stdio.h"
 
-void OutputMaker::makeOutputSync(const OutputData& data)
+OutputMaker::OutputMaker()
 {
-	m_formatter.parse(data);
-	printf("%s\n", m_formatter.result());
+	m_outputTask.setStackSize(512);
+}
+
+void OutputMaker::run()
+{
+	m_outputTask.run();
+}
+
+bool OutputMaker::receive(const IOutputMessage* msg)
+{
+	if (m_queue.size() == QueueMaxSize-1)
+		return false;
+	m_queue.pushBack(msg);
+	return true;
+}
+
+bool OutputMaker::receiveFromISR(const IOutputMessage* msg)
+{
+	/*if (m_queue.size() == QueueMaxSize-1)
+		return false;
+		*/
+	m_queue.pushBackFromISR(msg);
+	return true;
+}
+
+void OutputMaker::makeOutputLoop()
+{
+	const IOutputMessage* msg = nullptr;
+	for (;;)
+	{
+		m_queue.popFront(msg);
+		doOutput(msg);
+		delete msg;
+	}
+}
+
+void OutputMaker::doOutput(const IOutputMessage* msg)
+{
+	printf("%s\n", msg->str().c_str());
 }

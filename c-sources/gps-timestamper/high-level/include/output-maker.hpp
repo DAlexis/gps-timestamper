@@ -8,21 +8,29 @@
 #ifndef GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_OUTPUT_MAKER_HPP_
 #define GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_OUTPUT_MAKER_HPP_
 
-#include "output-formatter.hpp"
+#include "output-messages.hpp"
+#include "os-wrappers.hpp"
 
-class OutputMaker
+class OutputMaker : public IOutputMessagesReceiver
 {
 public:
-	void makeOutputSync(const OutputData& data);
+	constexpr static unsigned int QueueMaxSize = 10;
+
+	OutputMaker();
+
+	void run();
+
+	bool receive(const IOutputMessage* msg) override;
+	bool receiveFromISR(const IOutputMessage* msg) override;
 
 private:
-	OutputFormatter m_formatter;
+	void makeOutputLoop();
+	void doOutput(const IOutputMessage* msg);
+	Queue<const IOutputMessage*> m_queue{QueueMaxSize};
+
+	TaskOnce m_outputTask{[this] { makeOutputLoop(); }};
+
 };
-
-
-
-
-
 
 
 #endif /* GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_OUTPUT_MAKER_HPP_ */

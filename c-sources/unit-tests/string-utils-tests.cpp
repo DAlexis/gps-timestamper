@@ -1,5 +1,4 @@
-#include "string-utils.h"
-
+#include "string-utils.hpp"
 #include "gtest/gtest.h"
 
 #include <iostream>

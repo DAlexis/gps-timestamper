@@ -8,44 +8,33 @@
 #ifndef GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_TIMESTAMP_COLLECTOR_HPP_
 #define GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_TIMESTAMP_COLLECTOR_HPP_
 
-#include "output-data.hpp"
+#include "output-messages.hpp"
+#include "time-location-types.hpp"
 #include "nmea-receiver.hpp"
 #include "nmea-parser.hpp"
 #include "precision-timer.hpp"
 #include "os-wrappers.hpp"
+#include "time-location-manager.hpp"
+
 
 class TimestampCollector
 {
 public:
-	using DataReadyCallback = std::function<void(const OutputData& data)>;
-
-	TimestampCollector(NMEAReceiver* nmea, PrecisionTimer* precisionTimer);
-
-	void setDataReadyCallback(DataReadyCallback callback);
+	TimestampCollector(
+			const TimeLocationManager& tlm,
+			PrecisionTimer* precisionTimer,
+			IOutputMessagesReceiver& outputReceiver
+	);
 
 	void run();
 
 private:
 	void IRQSignalCaptureCallback(double time, uint32_t oneSecPeriod, uint32_t signalDelay);
-	void IRQPpsCaptureCallback();
 
-	void nmeaMonitoringLoop();
-	void queueMonitorLoop();
-
-	char m_reservedGPSString[NMEAReceiver::GPSstringMaxLen];
-	NMEAReceiver* m_nmea;
+	const TimeLocationManager& m_tlm;
 	PrecisionTimer* m_precisionTimer;
+	IOutputMessagesReceiver& m_outputReceiver;
 
-	Queue<OutputData> m_queue{10};
-
-	TaskOnce m_nmeaMonitoringTask;
-	TaskOnce m_queueMonitoringTask;
-
-	GPSData m_lastGPSData;
-	GPSData m_actualGPSData;
-	NMEAParser m_nmeaParser;
-
-	DataReadyCallback m_dataReadyCallback;
 };
 
 

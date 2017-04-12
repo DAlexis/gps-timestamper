@@ -19,7 +19,6 @@ public:
 	NMEAReceiver(UART_HandleTypeDef* huart);
 	const char* getCurrentGPSString();
 	bool updatedString();
-	bool updatedGPS();
 	void run();
 	void uartRXCallback();
 
