@@ -187,8 +187,6 @@ SECTIONS
     . = ALIGN(8);
     PROVIDE ( end = . );
     PROVIDE ( _end = . );
-    _Heap_Begin = .;
-    _Heap_Limit = _estack - _Min_Stack_Size;
     . = . + _Min_Heap_Size;
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
