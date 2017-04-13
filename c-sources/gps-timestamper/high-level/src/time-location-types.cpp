@@ -18,7 +18,7 @@ std::string DateTime::str() const
 	ostringstream oss;
 	std::tm dateTime;
 	localtime_r(&m_t, &dateTime);
-	oss << dateTime.tm_year + 1900 << "-"
+	oss << "\"" << dateTime.tm_year + 1900 << "-"
 			<< setfill('0') << setw(2)
 			<< dateTime.tm_mon << "-"
 			<< setw(2)
@@ -28,7 +28,8 @@ std::string DateTime::str() const
 			<< setw(2)
 			<< dateTime.tm_min << ":"
 			<< setw(2)
-			<< dateTime.tm_sec;
+			<< dateTime.tm_sec
+			<< "\"";
 	return oss.str();
 }
 

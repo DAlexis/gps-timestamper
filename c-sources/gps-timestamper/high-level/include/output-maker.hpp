@@ -14,7 +14,7 @@
 class OutputMaker : public IOutputMessagesReceiver
 {
 public:
-	constexpr static unsigned int QueueMaxSize = 10;
+	constexpr static unsigned int QueueMaxSize = 100;
 
 	OutputMaker();
 

@@ -40,19 +40,45 @@ public:
 	std::string str() const override;
 
 private:
-	const Position& m_pos;
-	const DateTime& m_dt;
+	const Position m_pos;
+	const DateTime m_dt;
 	uint32_t m_lastSecondPeriod;
 	uint32_t m_signalDelay;
 };
 
-struct OutputData
+class OutputPPS : public IOutputMessage
 {
-	GPSData gps;
-	double fractionSeconds;
-	uint32_t lastSecondPeriod;
-	uint32_t signalDelay;
+public:
+	OutputPPS(const Position& pos, const DateTime& dt);
+
+	std::string str() const override;
+private:
+	const Position m_pos;
+	const DateTime m_dt;
 };
 
+class OutputDebug : public IOutputMessage
+{
+public:
+	OutputDebug(const std::string& msg);
+
+	std::string str() const override;
+private:
+	const std::string m_msg;
+};
+
+class OutputGPSDisconnect : public IOutputMessage
+{
+public:
+	std::string str() const override;
+private:
+};
+
+class OutputQueueOverflow : public IOutputMessage
+{
+public:
+	std::string str() const override;
+private:
+};
 
 #endif /* GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_OUTPUT_MESSAGES_HPP_ */

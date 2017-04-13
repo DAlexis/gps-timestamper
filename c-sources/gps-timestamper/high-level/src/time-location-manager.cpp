@@ -1,7 +1,11 @@
 #include "time-location-manager.hpp"
 
-TimeLocationManager::TimeLocationManager(NMEAReceiver& nmea, PrecisionTimer& precTimer) :
-	m_nmea(nmea)
+TimeLocationManager::TimeLocationManager(
+		NMEAReceiver& nmea,
+		PrecisionTimer& precTimer,
+		IOutputMessagesReceiver& outputReceiver) :
+	m_nmea(nmea),
+	m_outputReceiver(outputReceiver)
 {
 	m_nmeaMonitoringTask.setStackSize(512);
 	m_nmeaMonitoringTask.setTask([this]{ nmeaMonitoringLoop(); });
@@ -30,6 +34,7 @@ void TimeLocationManager::nmeaMonitoringLoop()
 		if (m_wasPPS)
 		{
 			m_wasPPS = false;
+			m_outputReceiver.receive(new OutputPPS(m_pos, m_dt));
 			// @todo Add pps output
 		}
 		if (!m_nmea.updatedString())

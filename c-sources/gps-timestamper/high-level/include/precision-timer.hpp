@@ -8,6 +8,7 @@
 #ifndef GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_PRECISION_TIMER_HPP_
 #define GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_PRECISION_TIMER_HPP_
 
+#include "output-messages.hpp"
 #include "stm32f4xx_hal.h"
 
 #include <functional>
@@ -23,7 +24,7 @@ public:
 		GPS, signal
 	};
 
-	PrecisionTimer(TIM_HandleTypeDef* htim);
+	PrecisionTimer(TIM_HandleTypeDef* htim, IOutputMessagesReceiver& outputReceiver);
 	void run();
 	/// This function should be called regulary to ensure that we have valid last GPS records
 	void checkForGPSDisconnect();
@@ -37,6 +38,7 @@ public:
 
 private:
 	TIM_HandleTypeDef* m_htim;
+	IOutputMessagesReceiver& m_outputReceiver;
 	uint32_t m_prevGPS = 0;
 	uint32_t m_lastGPS = 0;
 	uint32_t m_gpsCount = 0;

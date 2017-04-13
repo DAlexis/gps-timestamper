@@ -125,7 +125,7 @@ bool TaskOnce::run(STime delay, osPriority priority)
 	if (m_taskId == NULL)
 	{
 		REMOVE_BITS(m_state, runningNow);
-		printf("DBG: Running new task failed!\n");
+		printf("ERROR: Running new task failed!\n");
 		return false;
 	}
 	return true;

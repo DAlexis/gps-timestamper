@@ -9,8 +9,9 @@
 
 PrecisionTimer *precisionTimerConnectedToInterrupt = nullptr;
 
-PrecisionTimer::PrecisionTimer(TIM_HandleTypeDef* htim) :
-	m_htim(htim)
+PrecisionTimer::PrecisionTimer(TIM_HandleTypeDef* htim, IOutputMessagesReceiver& outputReceiver) :
+	m_htim(htim),
+	m_outputReceiver(outputReceiver)
 {
 
 }
@@ -35,7 +36,7 @@ void PrecisionTimer::checkForGPSDisconnect()
 	if (delay > timeout)
 	{
 		m_gpsCount = 0;
-		printf("DBG: GPS disconnect detected, disabling timestamping\n");
+		m_outputReceiver.receive(new OutputGPSDisconnect());
 	}
 }
 

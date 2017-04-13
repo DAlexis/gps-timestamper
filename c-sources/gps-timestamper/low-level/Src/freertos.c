@@ -111,34 +111,9 @@ void StartDefaultTask(void const * argument)
 
   /* USER CODE BEGIN StartDefaultTask */
   osDelay(2000);
-  printf("FreeFROS running successfuly\n");
+  printf("{event: \"degug\", msg: \"FreeRTOS started successfuly\"}\n");
   entryPoint();
 
-  /*
-  while (1)
-	{
-
-	  HAL_UART_Receive(&huart3, buffer, 10, 1000);
-	  //HAL_UART_Transmit(&huart3, "test text", 10, 1000);
-	  buffer[10]='\0';
-
-	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
-	  HAL_Delay(100);
-	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_SET);
-	  HAL_Delay(100);
-
-	  //printf("Alive\n");
-	  printf("GPS says %s\n", (char*)buffer);
-	}*/
-  /* Infinite loop */
-  for(;;)
-  {
-	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
-	  osDelay(100);
-	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_SET);
-	  osDelay(100);
-	  printf("printf from freertos alive\n");
-  }
   /* USER CODE END StartDefaultTask */
 }
 

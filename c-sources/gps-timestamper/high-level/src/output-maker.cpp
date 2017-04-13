@@ -19,17 +19,31 @@ void OutputMaker::run()
 
 bool OutputMaker::receive(const IOutputMessage* msg)
 {
-	if (m_queue.size() == QueueMaxSize-1)
+	if (m_queue.size() >= QueueMaxSize-1)
+	{
+		delete msg;
+
+		if (m_queue.size() == QueueMaxSize-1)
+			m_queue.pushBack(new OutputQueueOverflow());
+
 		return false;
+	}
 	m_queue.pushBack(msg);
 	return true;
 }
 
 bool OutputMaker::receiveFromISR(const IOutputMessage* msg)
 {
-	/*if (m_queue.size() == QueueMaxSize-1)
+	if (m_queue.sizeFromISR() >= QueueMaxSize-1)
+	{
+
+		delete msg;
+
+		if (m_queue.sizeFromISR() == QueueMaxSize-1)
+			m_queue.pushBackFromISR(new OutputQueueOverflow());
+
 		return false;
-		*/
+	}
 	m_queue.pushBackFromISR(msg);
 	return true;
 }

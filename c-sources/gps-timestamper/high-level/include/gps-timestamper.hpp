@@ -15,6 +15,9 @@
 #include "output-maker.hpp"
 #include "time-location-manager.hpp"
 
+extern UART_HandleTypeDef huart3;
+extern TIM_HandleTypeDef htim2;
+
 class GPSTimestamper
 {
 public:
@@ -24,11 +27,12 @@ public:
 
 private:
 	GPSTimestamper();
-	NMEAReceiver m_nmea;
-	PrecisionTimer m_precTimer;
-	OutputMaker m_outputMaker;
 
-	TimeLocationManager m_timeLocMgr{m_nmea, m_precTimer};
+	NMEAReceiver m_nmea{&huart3};
+	OutputMaker m_outputMaker;
+	PrecisionTimer m_precTimer{&htim2, m_outputMaker};
+
+	TimeLocationManager m_timeLocMgr{m_nmea, m_precTimer, m_outputMaker};
 	TimestampCollector m_collector{m_timeLocMgr, &m_precTimer, m_outputMaker};
 };
 

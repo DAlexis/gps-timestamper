@@ -14,7 +14,7 @@ TEST(NmeaParser, ValidDataNew)
 	Position p;
 	ASSERT_NO_THROW(NMEAParser::parse(str, p, t));
 	ASSERT_TRUE(NMEAParser::parse(str, p, t));
-	ASSERT_EQ(t.str(), string("2017-04-11 13:47:09"));
+	ASSERT_EQ(t.str(), string("\"2017-04-11 13:47:09\""));
 	ASSERT_NEAR(p.lat, 56 + 19.4071 / 60.0, 1e-6);
 	ASSERT_NEAR(p.lon, 44 + 1.4063 / 60.0, 1e-6);
 }

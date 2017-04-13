@@ -13,6 +13,7 @@
 #include "nmea-receiver.hpp"
 #include "nmea-parser.hpp"
 #include "os-wrappers.hpp"
+#include "output-messages.hpp"
 
 /**
  * This class always know curent round time and GPS location,
@@ -21,7 +22,7 @@
 class TimeLocationManager
 {
 public:
-	TimeLocationManager(NMEAReceiver& nmea, PrecisionTimer& precTimer);
+	TimeLocationManager(NMEAReceiver& nmea, PrecisionTimer& precTimer, IOutputMessagesReceiver& outputReceiver);
 
 	void run();
 
@@ -38,6 +39,7 @@ private:
 	Position m_pos;
 
 	NMEAReceiver& m_nmea;
+	IOutputMessagesReceiver& m_outputReceiver;
 	TaskOnce m_nmeaMonitoringTask;
 };
 

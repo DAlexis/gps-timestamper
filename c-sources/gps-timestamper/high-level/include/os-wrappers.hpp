@@ -143,6 +143,11 @@ public:
 		return uxQueueMessagesWaiting(m_handle);
 	}
 
+	uint16_t sizeFromISR()
+	{
+		return uxQueueMessagesWaitingFromISR(m_handle);
+	}
+
 private:
 	xQueueHandle m_handle;
 };

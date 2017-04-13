@@ -23,6 +23,7 @@ TimestampCollector::TimestampCollector(
 
 void TimestampCollector::IRQSignalCaptureCallback(double time, uint32_t oneSecPeriod, uint32_t signalDelay)
 {
+	UNUSED(time);
 	OutputRegisteredImpulse* msg = new OutputRegisteredImpulse(
 		m_tlm.pos(),
 		m_tlm.dt(),

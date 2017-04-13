@@ -30,7 +30,6 @@ bool NMEAReceiver::updatedString()
 
 void NMEAReceiver::run()
 {
-	printf("DBG: NMEA receiver run\n");
 	receiverConnectedToInterrupt = this;
 	HAL_UART_Receive_IT(m_huart, reinterpret_cast<uint8_t*>(targetByte), 1);
 }

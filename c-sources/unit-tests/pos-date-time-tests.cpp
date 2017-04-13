@@ -11,7 +11,7 @@ TEST(DateTime, Format)
 	DateTime dt;
 	dt.set(2017, 04, 11, 16, 37, 9);
 	string s = dt.str();
-	ASSERT_EQ(dt.str(), string("2017-04-11 16:37:09"));
+	ASSERT_EQ(dt.str(), string("\"2017-04-11 16:37:09\""));
 }
 
 TEST(DateTime, Increment)
@@ -20,11 +20,11 @@ TEST(DateTime, Increment)
 
 	dt.set(2016, 12, 31, 23, 59, 55);
 	dt = dt + 15;
-	ASSERT_EQ(dt.str(), string("2017-01-01 00:00:10"));
+	ASSERT_EQ(dt.str(), string("\"2017-01-01 00:00:10\""));
 
 	dt.set(2016, 12, 31, 23, 59, 59);
 	dt++;
-	ASSERT_EQ(dt.str(), string("2017-01-01 00:00:00"));
+	ASSERT_EQ(dt.str(), string("\"2017-01-01 00:00:00\""));
 
 
 }
