@@ -1,4 +1,4 @@
-update=Ср 05 апр 2017 14:18:41
+update=Чт 13 апр 2017 15:54:02
 version=1
 last_client=kicad
 [pcbnew]
@@ -59,3 +59,5 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=/home/dalexies/Projects/gps-timestamper/schematic/components/schematic/stm32
+LibName31=/home/dalexies/Projects/gps-timestamper/schematic/components/schematic/ncp551
+LibName32=/home/dalexies/Projects/gps-timestamper/schematic/components/schematic/usblc6-4sc6

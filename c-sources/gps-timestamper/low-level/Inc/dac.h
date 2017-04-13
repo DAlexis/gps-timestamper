@@ -1,7 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : main.h
-  * Description        : This file contains the common defines of the application
+  * File Name          : DAC.h
+  * Description        : This file provides code for the configuration
+  *                      of the DAC instances.
   ******************************************************************************
   *
   * Copyright (c) 2017 STMicroelectronics International N.V. 
@@ -41,79 +42,45 @@
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
-  /* Includes ------------------------------------------------------------------*/
+#ifndef __dac_H
+#define __dac_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
+/* Includes ------------------------------------------------------------------*/
+#include "stm32f4xx_hal.h"
+#include "main.h"
 
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
-/* Private define ------------------------------------------------------------*/
+extern DAC_HandleTypeDef hdac;
 
-#define LED_ch2_Pin GPIO_PIN_2
-#define LED_ch2_GPIO_Port GPIOE
-#define LED_ch3_Pin GPIO_PIN_3
-#define LED_ch3_GPIO_Port GPIOE
-#define LED_ch4_Pin GPIO_PIN_4
-#define LED_ch4_GPIO_Port GPIOE
-#define LED_ch4E5_Pin GPIO_PIN_5
-#define LED_ch4E5_GPIO_Port GPIOE
-#define LED_ch6_Pin GPIO_PIN_6
-#define LED_ch6_GPIO_Port GPIOE
-#define Signal_Pin GPIO_PIN_0
-#define Signal_GPIO_Port GPIOA
-#define PPS_Pin GPIO_PIN_1
-#define PPS_GPIO_Port GPIOA
-#define TAG_USART2_TX_Pin GPIO_PIN_2
-#define TAG_USART2_TX_GPIO_Port GPIOA
-#define TAG_USART2_RX_Pin GPIO_PIN_3
-#define TAG_USART2_RX_GPIO_Port GPIOA
-#define DAC_treshold_03_Pin GPIO_PIN_4
-#define DAC_treshold_03_GPIO_Port GPIOA
-#define DAC_treshold_47_Pin GPIO_PIN_5
-#define DAC_treshold_47_GPIO_Port GPIOA
-#define LED_ch7_Pin GPIO_PIN_7
-#define LED_ch7_GPIO_Port GPIOE
-#define LED_PPS_Pin GPIO_PIN_12
-#define LED_PPS_GPIO_Port GPIOD
-#define Sound_Pin GPIO_PIN_13
-#define Sound_GPIO_Port GPIOD
-#define JSON_OUTPUT_USART1_TX_Pin GPIO_PIN_9
-#define JSON_OUTPUT_USART1_TX_GPIO_Port GPIOA
-#define JSON_OUTPUT_USART1_RX_Pin GPIO_PIN_10
-#define JSON_OUTPUT_USART1_RX_GPIO_Port GPIOA
-#define Sig_ch0_Pin GPIO_PIN_0
-#define Sig_ch0_GPIO_Port GPIOD
-#define Sig_ch1_Pin GPIO_PIN_1
-#define Sig_ch1_GPIO_Port GPIOD
-#define Sig_ch2_Pin GPIO_PIN_2
-#define Sig_ch2_GPIO_Port GPIOD
-#define SIg_ch3_Pin GPIO_PIN_3
-#define SIg_ch3_GPIO_Port GPIOD
-#define Sig_ch4_Pin GPIO_PIN_4
-#define Sig_ch4_GPIO_Port GPIOD
-#define Sig_ch5_Pin GPIO_PIN_5
-#define Sig_ch5_GPIO_Port GPIOD
-#define Sig_ch6_Pin GPIO_PIN_6
-#define Sig_ch6_GPIO_Port GPIOD
-#define Sig_ch7_Pin GPIO_PIN_7
-#define Sig_ch7_GPIO_Port GPIOD
-#define LED_ch0_Pin GPIO_PIN_0
-#define LED_ch0_GPIO_Port GPIOE
-#define LED_ch1_Pin GPIO_PIN_1
-#define LED_ch1_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
-/**
-  * @}
-  */ 
+extern void Error_Handler(void);
+
+void MX_DAC_Init(void);
+
+/* USER CODE BEGIN Prototypes */
+
+/* USER CODE END Prototypes */
+
+#ifdef __cplusplus
+}
+#endif
+#endif /*__ dac_H */
 
 /**
   * @}
-*/ 
+  */
 
-#endif /* __MAIN_H */
+/**
+  * @}
+  */
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
