@@ -26,6 +26,7 @@ std::string OutputRegisteredImpulse::str() const
 			<< "pos: " << m_pos.str()
 			<< ", time_round: " << m_dt.str()
 			<< ", time_frac: " << toString(float(m_signalDelay) / m_lastSecondPeriod)
+			<< ", last_second: " << m_lastSecondPeriod
 			<< "}";
 	return oss.str();
 }
