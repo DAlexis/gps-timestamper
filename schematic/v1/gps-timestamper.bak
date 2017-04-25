@@ -2106,7 +2106,7 @@ Connection ~ 3000 6200
 Wire Wire Line
 	9550 8150 9550 8050
 Wire Wire Line
-	3300 6850 1700 6850
+	1700 6850 3400 6850
 Connection ~ 3000 7050
 Wire Wire Line
 	1700 7050 3000 7050
@@ -2159,4 +2159,11 @@ F 3 "" H 9550 8150 50  0001 C CNN
 	1    9550 8150
 	1    0    0    -1  
 $EndComp
+Text GLabel 15400 1750 2    60   Input ~ 0
+UART_TAG_TX
+Wire Wire Line
+	15250 1750 15400 1750
+Text GLabel 3400 6850 2    60   Input ~ 0
+UART_TAG_TX
+Connection ~ 3300 6850
 $EndSCHEMATC
