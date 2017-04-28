@@ -591,7 +591,7 @@ F 3 "" H 2750 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 5100 3350 2    60   Input ~ 0
-CH0
+CH1
 $Comp
 L Jumper_NC_Dual JP1
 U 1 1 58FE6203
