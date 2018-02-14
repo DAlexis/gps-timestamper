@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name components)(type KiCad)(uri /home/dalexies/Projects/gps-timestamper/schematic/components/footprints/components.pretty)(options "")(descr ""))
+)
