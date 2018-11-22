@@ -1,0 +1,3 @@
+[submodule "c-sources/3rdparty/googletest"]
+	path = c-sources/3rdparty/googletest
+	url = https://github.com/abseil/googletest.git

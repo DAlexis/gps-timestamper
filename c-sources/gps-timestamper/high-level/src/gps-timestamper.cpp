@@ -30,7 +30,7 @@ void GPSTimestamper::run()
 	m_outputMaker.run();
 	//m_collector.run();
 	for (;;)
-	{
+    {
 		m_precTimer.checkForGPSDisconnect();
 	}
 }

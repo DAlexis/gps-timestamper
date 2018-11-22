@@ -1,38 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:stm32
-LIBS:ncp551
-LIBS:usblc6-4sc6
+EESchema Schematic File Version 4
 LIBS:gps-timestamper-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -47,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L STM32F407VGTx U8
+L stm32:STM32F407VGTx U8
 U 1 1 58E4D2C5
 P 10750 4050
 F 0 "U8" H 6450 6875 50  0000 L BNN
@@ -58,7 +26,7 @@ F 3 "" H 10750 4050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR01
+L power:+3.3V #PWR01
 U 1 1 58E4D7F3
 P 10350 950
 F 0 "#PWR01" H 10350 800 50  0001 C CNN
@@ -69,7 +37,7 @@ F 3 "" H 10350 950 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR02
+L power:GND #PWR02
 U 1 1 58E4D8D8
 P 10550 7100
 F 0 "#PWR02" H 10550 6850 50  0001 C CNN
@@ -80,7 +48,7 @@ F 3 "" H 10550 7100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR03
+L power:GNDA #PWR03
 U 1 1 58E4D93C
 P 10950 7100
 F 0 "#PWR03" H 10950 6850 50  0001 C CNN
@@ -91,7 +59,7 @@ F 3 "" H 10950 7100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3VA #PWR04
+L power:+3.3VA #PWR04
 U 1 1 58E4D990
 P 11150 950
 F 0 "#PWR04" H 11150 800 50  0001 C CNN
@@ -102,7 +70,7 @@ F 3 "" H 11150 950 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Crystal Y1
+L gps-timestamper-rescue:Crystal Y1
 U 1 1 58E4DA57
 P 6000 2800
 F 0 "Y1" H 6000 2950 50  0000 C CNN
@@ -113,7 +81,7 @@ F 3 "" H 6000 2800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C16
+L gps-timestamper-rescue:C C16
 U 1 1 58E4DAFC
 P 5650 2550
 F 0 "C16" H 5675 2650 50  0000 L CNN
@@ -124,7 +92,7 @@ F 3 "" H 5650 2550 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C17
+L gps-timestamper-rescue:C C17
 U 1 1 58E4DB41
 P 5650 3050
 F 0 "C17" H 5675 3150 50  0000 L CNN
@@ -135,7 +103,7 @@ F 3 "" H 5650 3050 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR05
+L power:GND #PWR05
 U 1 1 58E4DCB1
 P 5400 3150
 F 0 "#PWR05" H 5400 2900 50  0001 C CNN
@@ -162,7 +130,7 @@ TTL_IN
 Text GLabel 15400 1650 2    60   Input ~ 0
 PPS_IN
 $Comp
-L C C1
+L gps-timestamper-rescue:C C1
 U 1 1 58EF7259
 P 650 10600
 F 0 "C1" H 675 10700 50  0000 L CNN
@@ -173,7 +141,7 @@ F 3 "" H 650 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C4
+L gps-timestamper-rescue:C C4
 U 1 1 58EF73F3
 P 950 10600
 F 0 "C4" H 975 10700 50  0000 L CNN
@@ -184,7 +152,7 @@ F 3 "" H 950 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C5
+L gps-timestamper-rescue:C C5
 U 1 1 58EF7414
 P 1250 10600
 F 0 "C5" H 1275 10700 50  0000 L CNN
@@ -195,7 +163,7 @@ F 3 "" H 1250 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C6
+L gps-timestamper-rescue:C C6
 U 1 1 58EF7439
 P 1550 10600
 F 0 "C6" H 1575 10700 50  0000 L CNN
@@ -206,7 +174,7 @@ F 3 "" H 1550 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C7
+L gps-timestamper-rescue:C C7
 U 1 1 58EF748E
 P 1850 10600
 F 0 "C7" H 1875 10700 50  0000 L CNN
@@ -217,7 +185,7 @@ F 3 "" H 1850 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C8
+L gps-timestamper-rescue:C C8
 U 1 1 58EF74B5
 P 2150 10600
 F 0 "C8" H 2175 10700 50  0000 L CNN
@@ -228,7 +196,7 @@ F 3 "" H 2150 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C9
+L gps-timestamper-rescue:C C9
 U 1 1 58EF74DE
 P 2450 10600
 F 0 "C9" H 2475 10700 50  0000 L CNN
@@ -239,7 +207,7 @@ F 3 "" H 2450 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C10
+L gps-timestamper-rescue:C C10
 U 1 1 58EF7509
 P 2750 10600
 F 0 "C10" H 2775 10700 50  0000 L CNN
@@ -250,7 +218,7 @@ F 3 "" H 2750 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR06
+L power:GND #PWR06
 U 1 1 58EF791F
 P 1700 11000
 F 0 "#PWR06" H 1700 10750 50  0001 C CNN
@@ -261,7 +229,7 @@ F 3 "" H 1700 11000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR07
+L power:+3.3V #PWR07
 U 1 1 58EF79A2
 P 1700 10200
 F 0 "#PWR07" H 1700 10050 50  0001 C CNN
@@ -272,7 +240,7 @@ F 3 "" H 1700 10200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR08
+L power:+5V #PWR08
 U 1 1 58EF8522
 P 700 9150
 F 0 "#PWR08" H 700 9000 50  0001 C CNN
@@ -283,7 +251,7 @@ F 3 "" H 700 9150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C2
+L gps-timestamper-rescue:C C2
 U 1 1 58EF860D
 P 700 9400
 F 0 "C2" H 725 9500 50  0000 L CNN
@@ -294,7 +262,7 @@ F 3 "" H 700 9400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP C3
+L gps-timestamper-rescue:CP C3
 U 1 1 58EF863E
 P 950 9400
 F 0 "C3" H 975 9500 50  0000 L CNN
@@ -305,7 +273,7 @@ F 3 "" H 950 9400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR09
+L power:GND #PWR09
 U 1 1 58EF9411
 P 850 9700
 F 0 "#PWR09" H 850 9450 50  0001 C CNN
@@ -316,7 +284,7 @@ F 3 "" H 850 9700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR010
+L power:+3.3V #PWR010
 U 1 1 58EF9689
 P 2400 9200
 F 0 "#PWR010" H 2400 9050 50  0001 C CNN
@@ -327,7 +295,7 @@ F 3 "" H 2400 9200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR011
+L power:GND #PWR011
 U 1 1 58EF9C0A
 P 3400 10050
 F 0 "#PWR011" H 3400 9800 50  0001 C CNN
@@ -338,7 +306,7 @@ F 3 "" H 3400 10050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR012
+L power:+5V #PWR012
 U 1 1 58EF9CE7
 P 3800 9300
 F 0 "#PWR012" H 3800 9150 50  0001 C CNN
@@ -349,7 +317,7 @@ F 3 "" H 3800 9300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R7
+L gps-timestamper-rescue:R R7
 U 1 1 58EF9D1B
 P 4350 9350
 F 0 "R7" V 4430 9350 50  0000 C CNN
@@ -364,7 +332,7 @@ USB_D+
 Text GLabel 4700 9650 2    60   Input ~ 0
 USB_D-
 $Comp
-L USBLC6-4SC6 D4
+L usblc6-4sc6:USBLC6-4SC6 D4
 U 1 1 58EFA710
 P 4100 10200
 F 0 "D4" H 4100 9900 60  0000 C CNN
@@ -375,7 +343,7 @@ F 3 "" V 4200 10200 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR013
+L power:GND #PWR013
 U 1 1 58EFB291
 P 4100 10750
 F 0 "#PWR013" H 4100 10500 50  0001 C CNN
@@ -386,7 +354,7 @@ F 3 "" H 4100 10750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR014
+L power:GND #PWR014
 U 1 1 58EFB733
 P 5450 10750
 F 0 "#PWR014" H 5450 10500 50  0001 C CNN
@@ -397,7 +365,7 @@ F 3 "" H 5450 10750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR015
+L power:GNDA #PWR015
 U 1 1 58EFB76B
 P 6150 10750
 F 0 "#PWR015" H 6150 10500 50  0001 C CNN
@@ -408,7 +376,7 @@ F 3 "" H 6150 10750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Jumper JP1
+L gps-timestamper-rescue:Jumper JP1
 U 1 1 58EFB7E3
 P 5800 10600
 F 0 "JP1" H 5800 10750 50  0000 C CNN
@@ -419,7 +387,7 @@ F 3 "" H 5800 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR016
+L power:+3.3V #PWR016
 U 1 1 58EFBB4A
 P 5450 10100
 F 0 "#PWR016" H 5450 9950 50  0001 C CNN
@@ -430,7 +398,7 @@ F 3 "" H 5450 10100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3VA #PWR017
+L power:+3.3VA #PWR017
 U 1 1 58EFBE2C
 P 6150 10100
 F 0 "#PWR017" H 6150 9950 50  0001 C CNN
@@ -441,7 +409,7 @@ F 3 "" H 6150 10100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP C18
+L gps-timestamper-rescue:CP C18
 U 1 1 58EFC0A4
 P 6350 10400
 F 0 "C18" H 6375 10500 50  0000 L CNN
@@ -452,7 +420,7 @@ F 3 "" H 6350 10400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C19
+L gps-timestamper-rescue:C C19
 U 1 1 58EFC0F1
 P 6650 10400
 F 0 "C19" H 6675 10500 50  0000 L CNN
@@ -463,7 +431,7 @@ F 3 "" H 6650 10400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C15
+L gps-timestamper-rescue:C C15
 U 1 1 58EFC98B
 P 5650 2250
 F 0 "C15" H 5675 2350 50  0000 L CNN
@@ -474,7 +442,7 @@ F 3 "" H 5650 2250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C C14
+L gps-timestamper-rescue:C C14
 U 1 1 58EFC9DA
 P 5650 2000
 F 0 "C14" H 5675 2100 50  0000 L CNN
@@ -485,7 +453,7 @@ F 3 "" H 5650 2000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3.3V #PWR018
+L power:+3.3V #PWR018
 U 1 1 58EFD65D
 P 6000 1200
 F 0 "#PWR018" H 6000 1050 50  0001 C CNN
@@ -498,7 +466,7 @@ $EndComp
 Text GLabel 6150 1450 1    60   Input ~ 0
 NRST
 $Comp
-L CONN_01X04_MALE J5
+L gps-timestamper-rescue:CONN_01X04_MALE J5
 U 1 1 58EFEBD9
 P 8100 10400
 F 0 "J5" H 8100 10775 50  0000 C CNN
@@ -509,7 +477,7 @@ F 3 "" H 8100 10700 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR019
+L power:GND #PWR019
 U 1 1 58EFED73
 P 7700 10800
 F 0 "#PWR019" H 7700 10550 50  0001 C CNN
@@ -536,7 +504,7 @@ DAC_CH03
 Text GLabel 15400 2050 2    60   Input ~ 0
 DAC_CH47
 $Comp
-L R R9
+L gps-timestamper-rescue:R R9
 U 1 1 58F1A750
 P 4900 6150
 F 0 "R9" V 4980 6150 50  0000 C CNN
@@ -547,7 +515,7 @@ F 3 "" H 4900 6150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R10
+L gps-timestamper-rescue:R R10
 U 1 1 58F21221
 P 4900 6450
 F 0 "R10" V 4980 6450 50  0000 C CNN
@@ -558,7 +526,7 @@ F 3 "" H 4900 6450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Buzzer BZ1
+L gps-timestamper-rescue:Buzzer BZ1
 U 1 1 58F21808
 P 5750 7000
 F 0 "BZ1" H 5900 7050 50  0000 L CNN
@@ -569,7 +537,7 @@ F 3 "" V 5725 7100 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L R R11
+L gps-timestamper-rescue:R R11
 U 1 1 58F21CC6
 P 4900 6750
 F 0 "R11" V 4980 6750 50  0000 C CNN
@@ -580,7 +548,7 @@ F 3 "" H 4900 6750 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R15
+L gps-timestamper-rescue:R R15
 U 1 1 58F21FF3
 P 6000 6700
 F 0 "R15" V 6080 6700 50  0000 C CNN
@@ -591,7 +559,7 @@ F 3 "" H 6000 6700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR020
+L power:GND #PWR020
 U 1 1 58F22538
 P 6000 7200
 F 0 "#PWR020" H 6000 6950 50  0001 C CNN
@@ -602,7 +570,7 @@ F 3 "" H 6000 7200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR021
+L power:GND #PWR021
 U 1 1 58F24B5E
 P 4650 6900
 F 0 "#PWR021" H 4650 6650 50  0001 C CNN
@@ -613,7 +581,7 @@ F 3 "" H 4650 6900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D7
+L gps-timestamper-rescue:LED D7
 U 1 1 58F25353
 P 5350 6150
 F 0 "D7" H 5350 6250 50  0000 C CNN
@@ -624,7 +592,7 @@ F 3 "" H 5350 6150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D8
+L gps-timestamper-rescue:LED D8
 U 1 1 58F25450
 P 5350 6450
 F 0 "D8" H 5350 6550 50  0000 C CNN
@@ -635,7 +603,7 @@ F 3 "" H 5350 6450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED D9
+L gps-timestamper-rescue:LED D9
 U 1 1 58F25537
 P 5350 6750
 F 0 "D9" H 5350 6850 50  0000 C CNN
@@ -648,7 +616,7 @@ $EndComp
 Text GLabel 4550 1600 1    60   Input ~ 0
 TTL_IN
 $Comp
-L +3.3VA #PWR022
+L power:+3.3VA #PWR022
 U 1 1 58F30802
 P 3850 2000
 F 0 "#PWR022" H 3850 1850 50  0001 C CNN
@@ -659,7 +627,7 @@ F 3 "" H 3850 2000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR023
+L power:GNDA #PWR023
 U 1 1 58F3085C
 P 3850 2750
 F 0 "#PWR023" H 3850 2500 50  0001 C CNN
@@ -672,7 +640,7 @@ $EndComp
 Text GLabel 3250 2450 0    60   Input ~ 0
 DAC_CH03
 $Comp
-L C C11
+L gps-timestamper-rescue:C C11
 U 1 1 58F31248
 P 3450 2700
 F 0 "C11" H 3475 2800 50  0000 L CNN
@@ -683,7 +651,7 @@ F 3 "" H 3450 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR024
+L power:GNDA #PWR024
 U 1 1 58F312F1
 P 3450 2950
 F 0 "#PWR024" H 3450 2700 50  0001 C CNN
@@ -694,7 +662,7 @@ F 3 "" H 3450 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C13
+L gps-timestamper-rescue:C C13
 U 1 1 58F334B5
 P 5650 1750
 F 0 "C13" H 5675 1850 50  0000 L CNN
@@ -705,7 +673,7 @@ F 3 "" H 5650 1750 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R13
+L gps-timestamper-rescue:R R13
 U 1 1 58F338EB
 P 5650 1500
 F 0 "R13" V 5730 1500 50  0000 C CNN
@@ -716,7 +684,7 @@ F 3 "" H 5650 1500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3.3VA #PWR025
+L power:+3.3VA #PWR025
 U 1 1 58F34216
 P 5400 1500
 F 0 "#PWR025" H 5400 1350 50  0001 C CNN
@@ -727,7 +695,7 @@ F 3 "" H 5400 1500 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L D D1
+L gps-timestamper-rescue:D D1
 U 1 1 58F49E81
 P 2350 1550
 F 0 "D1" H 2350 1650 50  0000 C CNN
@@ -738,7 +706,7 @@ F 3 "" H 2350 1550 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GNDA #PWR026
+L power:GNDA #PWR026
 U 1 1 58F4A4DB
 P 2950 2050
 F 0 "#PWR026" H 2950 1800 50  0001 C CNN
@@ -749,7 +717,7 @@ F 3 "" H 2950 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3VA #PWR027
+L power:+3.3VA #PWR027
 U 1 1 58F4A76B
 P 2950 1250
 F 0 "#PWR027" H 2950 1100 50  0001 C CNN
@@ -760,7 +728,7 @@ F 3 "" H 2950 1250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR028
+L power:GNDA #PWR028
 U 1 1 58F4A8D3
 P 1750 1950
 F 0 "#PWR028" H 1750 1700 50  0001 C CNN
@@ -771,7 +739,7 @@ F 3 "" H 1750 1950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3VA #PWR029
+L power:+3.3VA #PWR029
 U 1 1 58F4A93D
 P 1750 1150
 F 0 "#PWR029" H 1750 1000 50  0001 C CNN
@@ -782,7 +750,7 @@ F 3 "" H 1750 1150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R1
+L gps-timestamper-rescue:R R1
 U 1 1 58F4B03F
 P 1300 1650
 F 0 "R1" V 1380 1650 50  0000 C CNN
@@ -793,7 +761,7 @@ F 3 "" H 1300 1650 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R3
+L gps-timestamper-rescue:R R3
 U 1 1 58F4B0BA
 P 1850 850
 F 0 "R3" V 1930 850 50  0000 C CNN
@@ -804,7 +772,7 @@ F 3 "" H 1850 850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDA #PWR030
+L power:GNDA #PWR030
 U 1 1 58F4B451
 P 1400 1300
 F 0 "#PWR030" H 1400 1050 50  0001 C CNN
@@ -815,7 +783,7 @@ F 3 "" H 1400 1300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R5
+L gps-timestamper-rescue:R R5
 U 1 1 58F4B9BA
 P 2050 2250
 F 0 "R5" V 2130 2250 50  0000 C CNN
@@ -826,7 +794,7 @@ F 3 "" H 2050 2250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R8
+L gps-timestamper-rescue:R R8
 U 1 1 58F4E4A6
 P 4750 1750
 F 0 "R8" V 4830 1750 50  0000 C CNN
@@ -837,7 +805,7 @@ F 3 "" H 4750 1750 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDA #PWR031
+L power:GNDA #PWR031
 U 1 1 58F4E52F
 P 5000 1850
 F 0 "#PWR031" H 5000 1600 50  0001 C CNN
@@ -848,7 +816,7 @@ F 3 "" H 5000 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L D D3
+L gps-timestamper-rescue:D D3
 U 1 1 58F4E6D6
 P 4350 2100
 F 0 "D3" H 4350 2200 50  0000 C CNN
@@ -859,7 +827,7 @@ F 3 "" H 4350 2100 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +3.3VA #PWR032
+L power:+3.3VA #PWR032
 U 1 1 58F4F889
 P 3850 3650
 F 0 "#PWR032" H 3850 3500 50  0001 C CNN
@@ -870,7 +838,7 @@ F 3 "" H 3850 3650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR033
+L power:GNDA #PWR033
 U 1 1 58F4F88F
 P 3850 4400
 F 0 "#PWR033" H 3850 4150 50  0001 C CNN
@@ -881,7 +849,7 @@ F 3 "" H 3850 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C12
+L gps-timestamper-rescue:C C12
 U 1 1 58F4F896
 P 3450 4350
 F 0 "C12" H 3475 4450 50  0000 L CNN
@@ -892,7 +860,7 @@ F 3 "" H 3450 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR034
+L power:GNDA #PWR034
 U 1 1 58F4F89C
 P 3450 4600
 F 0 "#PWR034" H 3450 4350 50  0001 C CNN
@@ -903,7 +871,7 @@ F 3 "" H 3450 4600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L D D2
+L gps-timestamper-rescue:D D2
 U 1 1 58F4F8B4
 P 2350 3200
 F 0 "D2" H 2350 3300 50  0000 C CNN
@@ -914,7 +882,7 @@ F 3 "" H 2350 3200 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GNDA #PWR035
+L power:GNDA #PWR035
 U 1 1 58F4F8BC
 P 2950 3700
 F 0 "#PWR035" H 2950 3450 50  0001 C CNN
@@ -925,7 +893,7 @@ F 3 "" H 2950 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3VA #PWR036
+L power:+3.3VA #PWR036
 U 1 1 58F4F8C3
 P 2950 2900
 F 0 "#PWR036" H 2950 2750 50  0001 C CNN
@@ -936,7 +904,7 @@ F 3 "" H 2950 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR037
+L power:GNDA #PWR037
 U 1 1 58F4F8CA
 P 1750 3600
 F 0 "#PWR037" H 1750 3350 50  0001 C CNN
@@ -947,7 +915,7 @@ F 3 "" H 1750 3600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3VA #PWR038
+L power:+3.3VA #PWR038
 U 1 1 58F4F8D0
 P 1750 2850
 F 0 "#PWR038" H 1750 2700 50  0001 C CNN
@@ -958,7 +926,7 @@ F 3 "" H 1750 2850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R2
+L gps-timestamper-rescue:R R2
 U 1 1 58F4F8DD
 P 1300 3300
 F 0 "R2" V 1380 3300 50  0000 C CNN
@@ -969,7 +937,7 @@ F 3 "" H 1300 3300 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R4
+L gps-timestamper-rescue:R R4
 U 1 1 58F4F8E3
 P 1850 2500
 F 0 "R4" V 1930 2500 50  0000 C CNN
@@ -980,7 +948,7 @@ F 3 "" H 1850 2500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDA #PWR039
+L power:GNDA #PWR039
 U 1 1 58F4F8EB
 P 1400 2950
 F 0 "#PWR039" H 1400 2700 50  0001 C CNN
@@ -991,7 +959,7 @@ F 3 "" H 1400 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R6
+L gps-timestamper-rescue:R R6
 U 1 1 58F4F8F9
 P 2050 3900
 F 0 "R6" V 2130 3900 50  0000 C CNN
@@ -1002,7 +970,7 @@ F 3 "" H 2050 3900 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L D D5
+L gps-timestamper-rescue:D D5
 U 1 1 58F4F904
 P 4550 3750
 F 0 "D5" H 4550 3850 50  0000 C CNN
@@ -1015,7 +983,7 @@ $EndComp
 Text GLabel 3250 4100 0    60   Input ~ 0
 DAC_CH47
 $Comp
-L LED D6
+L gps-timestamper-rescue:LED D6
 U 1 1 58F52802
 P 5350 3700
 F 0 "D6" H 5350 3800 50  0000 C CNN
@@ -1026,7 +994,7 @@ F 3 "" H 5350 3700 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L LED D10
+L gps-timestamper-rescue:LED D10
 U 1 1 58F528D9
 P 5650 3700
 F 0 "D10" H 5650 3800 50  0000 C CNN
@@ -1037,7 +1005,7 @@ F 3 "" H 5650 3700 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R12
+L gps-timestamper-rescue:R R12
 U 1 1 58F5297C
 P 5350 4100
 F 0 "R12" V 5430 4100 50  0000 C CNN
@@ -1048,7 +1016,7 @@ F 3 "" H 5350 4100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R14
+L gps-timestamper-rescue:R R14
 U 1 1 58F52B6C
 P 5650 4100
 F 0 "R14" V 5730 4100 50  0000 C CNN
@@ -1059,7 +1027,7 @@ F 3 "" H 5650 4100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR040
+L power:GND #PWR040
 U 1 1 58F52CA0
 P 5350 4350
 F 0 "#PWR040" H 5350 4100 50  0001 C CNN
@@ -1070,7 +1038,7 @@ F 3 "" H 5350 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR041
+L power:GND #PWR041
 U 1 1 58F52D3C
 P 5650 4350
 F 0 "#PWR041" H 5650 4100 50  0001 C CNN
@@ -1081,7 +1049,7 @@ F 3 "" H 5650 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP C20
+L gps-timestamper-rescue:CP C20
 U 1 1 58F586FC
 P 2300 9450
 F 0 "C20" H 2325 9550 50  0000 L CNN
@@ -1092,7 +1060,7 @@ F 3 "" H 2300 9450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR042
+L power:GND #PWR042
 U 1 1 58F5879B
 P 2300 9700
 F 0 "#PWR042" H 2300 9450 50  0001 C CNN
@@ -1103,7 +1071,7 @@ F 3 "" H 2300 9700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Ferrite_Bead L1
+L gps-timestamper-rescue:Ferrite_Bead L1
 U 1 1 58F5B211
 P 5800 10200
 F 0 "L1" V 5650 10225 50  0000 C CNN
@@ -1114,7 +1082,7 @@ F 3 "" H 5800 10200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L RJ45 J1
+L gps-timestamper-rescue:RJ45 J1
 U 1 1 58F5B978
 P 4650 8250
 F 0 "J1" H 4850 8750 50  0000 C CNN
@@ -1125,7 +1093,7 @@ F 3 "" H 4650 8250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR043
+L power:GND #PWR043
 U 1 1 58F5C125
 P 5200 8650
 F 0 "#PWR043" H 5200 8400 50  0001 C CNN
@@ -1136,7 +1104,7 @@ F 3 "" H 5200 8650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR044
+L power:GND #PWR044
 U 1 1 58F5E969
 P 1650 9700
 F 0 "#PWR044" H 1650 9450 50  0001 C CNN
@@ -1147,7 +1115,7 @@ F 3 "" H 1650 9700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L USBLC6-4SC6 D11
+L usblc6-4sc6:USBLC6-4SC6 D11
 U 1 1 58F64553
 P 3150 7850
 F 0 "D11" H 3150 7550 60  0000 C CNN
@@ -1158,7 +1126,7 @@ F 3 "" V 3250 7850 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +3.3VA #PWR045
+L power:+3.3VA #PWR045
 U 1 1 58F65190
 P 3150 7350
 F 0 "#PWR045" H 3150 7200 50  0001 C CNN
@@ -1169,7 +1137,7 @@ F 3 "" H 3150 7350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR046
+L power:GNDA #PWR046
 U 1 1 58F653DB
 P 3150 8350
 F 0 "#PWR046" H 3150 8100 50  0001 C CNN
@@ -1180,7 +1148,7 @@ F 3 "" H 3150 8350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L RJ45 J2
+L gps-timestamper-rescue:RJ45 J2
 U 1 1 58F892BE
 P 1250 7200
 F 0 "J2" H 1450 7700 50  0000 C CNN
@@ -1191,7 +1159,7 @@ F 3 "" H 1250 7200 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +5V #PWR047
+L power:+5V #PWR047
 U 1 1 58F89BB2
 P 1900 7450
 F 0 "#PWR047" H 1900 7300 50  0001 C CNN
@@ -1202,7 +1170,7 @@ F 3 "" H 1900 7450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +5V #PWR048
+L power:+5V #PWR048
 U 1 1 58F89FC7
 P 5300 8500
 F 0 "#PWR048" H 5300 8350 50  0001 C CNN
@@ -1221,7 +1189,7 @@ Ch0_to_amp
 Text GLabel 3000 6100 1    60   Input ~ 0
 Ch1_to_amp
 $Comp
-L C C21
+L gps-timestamper-rescue:C C21
 U 1 1 58F8EFF6
 P 1900 6550
 F 0 "C21" H 1925 6650 50  0000 L CNN
@@ -1232,7 +1200,7 @@ F 3 "" H 1900 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C22
+L gps-timestamper-rescue:C C22
 U 1 1 58F8F865
 P 2150 6550
 F 0 "C22" H 2175 6650 50  0000 L CNN
@@ -1243,7 +1211,7 @@ F 3 "" H 2150 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C23
+L gps-timestamper-rescue:C C23
 U 1 1 58F8F93F
 P 2400 6550
 F 0 "C23" H 2425 6650 50  0000 L CNN
@@ -1254,7 +1222,7 @@ F 3 "" H 2400 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C24
+L gps-timestamper-rescue:C C24
 U 1 1 58F8FA18
 P 2750 6550
 F 0 "C24" H 2775 6650 50  0000 L CNN
@@ -1265,7 +1233,7 @@ F 3 "" H 2750 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C25
+L gps-timestamper-rescue:C C25
 U 1 1 58F8FAF8
 P 3000 6550
 F 0 "C25" H 3025 6650 50  0000 L CNN
@@ -1276,7 +1244,7 @@ F 3 "" H 3000 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C26
+L gps-timestamper-rescue:C C26
 U 1 1 58F8FBDB
 P 3250 6550
 F 0 "C26" H 3275 6650 50  0000 L CNN
@@ -1287,7 +1255,7 @@ F 3 "" H 3250 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R16
+L gps-timestamper-rescue:R R16
 U 1 1 58F91358
 P 1950 6200
 F 0 "R16" V 2030 6200 50  0000 C CNN
@@ -1298,7 +1266,7 @@ F 3 "" H 1950 6200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDA #PWR049
+L power:GNDA #PWR049
 U 1 1 58F9153E
 P 1800 7600
 F 0 "#PWR049" H 1800 7350 50  0001 C CNN
@@ -1309,7 +1277,7 @@ F 3 "" H 1800 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR050
+L power:GNDA #PWR050
 U 1 1 58F91618
 P 1700 6300
 F 0 "#PWR050" H 1700 6050 50  0001 C CNN
@@ -1320,7 +1288,7 @@ F 3 "" H 1700 6300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDA #PWR051
+L power:GNDA #PWR051
 U 1 1 58F91737
 P 3550 6300
 F 0 "#PWR051" H 3550 6050 50  0001 C CNN
@@ -1331,7 +1299,7 @@ F 3 "" H 3550 6300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R17
+L gps-timestamper-rescue:R R17
 U 1 1 58F91925
 P 3200 6200
 F 0 "R17" V 3280 6200 50  0000 C CNN
@@ -1342,7 +1310,7 @@ F 3 "" H 3200 6200 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CONN_COAXIAL J3
+L gps-timestamper-rescue:CONN_COAXIAL J3
 U 1 1 58F96BBE
 P 10700 7850
 F 0 "J3" H 10710 7970 50  0000 C CNN
@@ -1353,7 +1321,7 @@ F 3 "" H 10700 7850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L USB_OTG J4
+L gps-timestamper-rescue:USB_OTG J4
 U 1 1 58F97735
 P 3400 9550
 F 0 "J4" H 3200 10000 50  0000 L CNN
@@ -1365,7 +1333,7 @@ F 3 "" H 3550 9500 50  0001 C CNN
 $EndComp
 NoConn ~ 3300 9950
 $Comp
-L 74HC04 U9
+L gps-timestamper-rescue:74HC04 U9
 U 1 1 58F9E47E
 P 8600 7850
 F 0 "U9" H 8750 7950 50  0000 C CNN
@@ -1376,7 +1344,7 @@ F 3 "" H 8600 7850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC04 U9
+L gps-timestamper-rescue:74HC04 U9
 U 2 1 58F9E971
 P 9800 7850
 F 0 "U9" H 9950 7950 50  0000 C CNN
@@ -1387,7 +1355,7 @@ F 3 "" H 9800 7850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC04 U9
+L gps-timestamper-rescue:74HC04 U9
 U 3 1 58F9EAF9
 P 9800 8200
 F 0 "U9" H 9950 8300 50  0000 C CNN
@@ -1398,7 +1366,7 @@ F 3 "" H 9800 8200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC04 U9
+L gps-timestamper-rescue:74HC04 U9
 U 4 1 58F9EBB2
 P 9800 8550
 F 0 "U9" H 9950 8650 50  0000 C CNN
@@ -1409,7 +1377,7 @@ F 3 "" H 9800 8550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC04 U9
+L gps-timestamper-rescue:74HC04 U9
 U 5 1 58F9EC67
 P 9800 8900
 F 0 "U9" H 9950 9000 50  0000 C CNN
@@ -1420,7 +1388,7 @@ F 3 "" H 9800 8900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC04 U9
+L gps-timestamper-rescue:74HC04 U9
 U 6 1 58F9ED1A
 P 9800 9250
 F 0 "U9" H 9950 9350 50  0000 C CNN
@@ -1433,7 +1401,7 @@ $EndComp
 Text GLabel 7800 7400 0    60   Input ~ 0
 PPS_IN
 $Comp
-L VCC #PWR052
+L power:VCC #PWR052
 U 1 1 58FA23E6
 P 9000 8750
 F 0 "#PWR052" H 9000 8600 50  0001 C CNN
@@ -1444,7 +1412,7 @@ F 3 "" H 9000 8750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR053
+L power:+5V #PWR053
 U 1 1 58FA25C8
 P 9000 8850
 F 0 "#PWR053" H 9000 8700 50  0001 C CNN
@@ -1457,7 +1425,7 @@ $EndComp
 Text Notes 8000 8950 0    60   ~ 0
 This is for 74HC04\nIt has no special \nVCC and GND pins
 $Comp
-L GND #PWR054
+L power:GND #PWR054
 U 1 1 58FA2EC5
 P 10700 8150
 F 0 "#PWR054" H 10700 7900 50  0001 C CNN
@@ -1472,7 +1440,7 @@ UART_TAG_TX
 Text GLabel 3400 6850 2    60   Input ~ 0
 UART_TAG_TX
 $Comp
-L Jumper_NC_Dual JP2
+L gps-timestamper-rescue:Jumper_NC_Dual JP2
 U 1 1 5903395E
 P 7900 7850
 F 0 "JP2" H 7950 7750 50  0000 L CNN
@@ -1485,7 +1453,7 @@ $EndComp
 Text GLabel 7800 8250 0    60   Input ~ 0
 TTL_IN
 $Comp
-L MCP1826S U3
+L gps-timestamper-rescue:MCP1826S U3
 U 1 1 5A561839
 P 1650 9200
 F 0 "U3" H 1500 9325 50  0000 C CNN
@@ -1496,7 +1464,7 @@ F 3 "" H 1650 9450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CA3130 U1
+L gps-timestamper-rescue:CA3130 U1
 U 1 1 5A572800
 P 1850 1550
 F 0 "U1" H 1850 1800 50  0000 L CNN
@@ -1507,7 +1475,7 @@ F 3 "" H 1850 1550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CA3130 U4
+L gps-timestamper-rescue:CA3130 U4
 U 1 1 5A575216
 P 3050 1650
 F 0 "U4" H 3050 1900 50  0000 L CNN
@@ -1518,7 +1486,7 @@ F 3 "" H 3050 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CA3130 U6
+L gps-timestamper-rescue:CA3130 U6
 U 1 1 5A57737C
 P 3950 2350
 F 0 "U6" H 3900 2650 50  0000 L CNN
@@ -1529,7 +1497,7 @@ F 3 "" H 3950 2350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CA3130 U5
+L gps-timestamper-rescue:CA3130 U5
 U 1 1 5A5792AA
 P 3050 3300
 F 0 "U5" H 3050 3550 50  0000 L CNN
@@ -1540,7 +1508,7 @@ F 3 "" H 3050 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CA3130 U7
+L gps-timestamper-rescue:CA3130 U7
 U 1 1 5A5794A0
 P 3950 4000
 F 0 "U7" H 3950 4250 50  0000 L CNN
@@ -1551,7 +1519,7 @@ F 3 "" H 3950 4000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CA3130 U2
+L gps-timestamper-rescue:CA3130 U2
 U 1 1 5A5796B4
 P 1850 3200
 F 0 "U2" H 1850 3450 50  0000 L CNN
@@ -1562,7 +1530,7 @@ F 3 "" H 1850 3200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10350 950  10950 950 
+	10350 950  10450 950 
 Wire Wire Line
 	10550 950  10550 1050
 Wire Wire Line
@@ -1578,9 +1546,9 @@ Wire Wire Line
 	10950 950  10950 1050
 Connection ~ 10850 950 
 Wire Wire Line
-	10550 6950 10550 7100
+	10550 6950 10550 7050
 Wire Wire Line
-	10550 7050 10850 7050
+	10550 7050 10650 7050
 Wire Wire Line
 	10650 7050 10650 6950
 Connection ~ 10550 7050
@@ -1593,12 +1561,12 @@ Connection ~ 10750 7050
 Wire Wire Line
 	10950 7100 10950 6950
 Wire Wire Line
-	5800 3050 6250 3050
+	5800 3050 6000 3050
 Wire Wire Line
 	6000 2950 6000 3050
 Connection ~ 6000 3050
 Wire Wire Line
-	5800 2550 6250 2550
+	5800 2550 6000 2550
 Wire Wire Line
 	6000 2550 6000 2650
 Wire Wire Line
@@ -1607,7 +1575,7 @@ Connection ~ 6000 2550
 Wire Wire Line
 	5500 3050 5400 3050
 Wire Wire Line
-	5400 1750 5400 3150
+	5400 1750 5400 2000
 Wire Wire Line
 	6150 5750 6250 5750
 Wire Wire Line
@@ -1637,7 +1605,7 @@ Wire Wire Line
 Wire Wire Line
 	650  10450 650  10300
 Wire Wire Line
-	650  10300 2750 10300
+	650  10300 950  10300
 Wire Wire Line
 	2750 10300 2750 10450
 Wire Wire Line
@@ -1661,7 +1629,7 @@ Connection ~ 1250 10300
 Wire Wire Line
 	650  10750 650  10900
 Wire Wire Line
-	650  10900 2750 10900
+	650  10900 950  10900
 Wire Wire Line
 	2750 10900 2750 10750
 Wire Wire Line
@@ -1689,7 +1657,7 @@ Wire Wire Line
 	1700 10200 1700 10300
 Connection ~ 1700 10300
 Wire Wire Line
-	700  9150 700  9250
+	700  9150 700  9200
 Connection ~ 700  9200
 Wire Wire Line
 	950  9250 950  9200
@@ -1703,15 +1671,15 @@ Wire Wire Line
 Wire Wire Line
 	3400 9950 3400 10050
 Wire Wire Line
-	3700 9350 4200 9350
+	3700 9350 3800 9350
 Wire Wire Line
 	3800 9350 3800 9300
 Wire Wire Line
-	3700 9650 4700 9650
+	3700 9650 3950 9650
 Wire Wire Line
 	3950 9650 3950 9750
 Wire Wire Line
-	3700 9550 4700 9550
+	3700 9550 4250 9550
 Wire Wire Line
 	4250 9550 4250 9750
 Wire Wire Line
@@ -1732,7 +1700,7 @@ Wire Wire Line
 Wire Wire Line
 	5450 10600 5500 10600
 Wire Wire Line
-	6100 10600 6650 10600
+	6100 10600 6150 10600
 Wire Wire Line
 	6150 10600 6150 10750
 Wire Wire Line
@@ -1742,7 +1710,7 @@ Wire Wire Line
 Wire Wire Line
 	6150 10100 6150 10200
 Wire Wire Line
-	5950 10200 6650 10200
+	5950 10200 6150 10200
 Wire Wire Line
 	6650 10600 6650 10550
 Connection ~ 6150 10600
@@ -1764,7 +1732,7 @@ Connection ~ 5400 2250
 Wire Wire Line
 	5950 2050 6250 2050
 Wire Wire Line
-	5950 1500 5950 2050
+	5950 1500 5950 1750
 Wire Wire Line
 	6000 1950 6250 1950
 Wire Wire Line
@@ -1822,7 +1790,7 @@ Wire Wire Line
 Wire Wire Line
 	4750 6750 4650 6750
 Wire Wire Line
-	4650 6150 4650 6900
+	4650 6150 4650 6450
 Wire Wire Line
 	4650 6450 4750 6450
 Connection ~ 4650 6750
@@ -1877,9 +1845,9 @@ Wire Wire Line
 Wire Wire Line
 	4350 1950 4350 1750
 Wire Wire Line
-	4350 1750 4600 1750
+	4350 1750 4550 1750
 Wire Wire Line
-	4550 1600 4550 3600
+	4550 1600 4550 1750
 Connection ~ 4550 1750
 Wire Wire Line
 	3450 4200 3450 4100
@@ -1911,7 +1879,7 @@ Wire Wire Line
 Connection ~ 1500 3300
 Connection ~ 3450 3900
 Wire Wire Line
-	4550 3900 4550 5050
+	4550 3900 4550 4000
 Wire Wire Line
 	5000 2350 5000 4950
 Wire Wire Line
@@ -1952,7 +1920,7 @@ Wire Wire Line
 Wire Wire Line
 	5100 8000 5200 8000
 Wire Wire Line
-	5200 8000 5200 8650
+	5200 8000 5200 8200
 Wire Wire Line
 	5200 8600 5100 8600
 Wire Wire Line
@@ -1969,7 +1937,7 @@ Wire Wire Line
 Wire Wire Line
 	5100 8300 5300 8300
 Wire Wire Line
-	700  9650 950  9650
+	700  9650 850  9650
 Connection ~ 850  9650
 Wire Wire Line
 	3150 8350 3150 8300
@@ -1978,7 +1946,7 @@ Wire Wire Line
 Wire Wire Line
 	1700 6950 1800 6950
 Wire Wire Line
-	1800 6950 1800 7600
+	1800 6950 1800 7150
 Wire Wire Line
 	1800 7550 1700 7550
 Wire Wire Line
@@ -1991,11 +1959,11 @@ Connection ~ 1800 7550
 Wire Wire Line
 	1700 7450 1900 7450
 Wire Wire Line
-	1700 7250 2700 7250
+	1700 7250 2150 7250
 Wire Wire Line
-	1100 2500 1100 3400
+	1100 2500 1100 3300
 Wire Wire Line
-	1100 850  1100 1750
+	1100 850  1100 1650
 Connection ~ 1100 1650
 Connection ~ 1100 3300
 Wire Wire Line
@@ -2005,14 +1973,14 @@ Wire Wire Line
 Wire Wire Line
 	3000 8400 3000 8300
 Wire Wire Line
-	3000 6700 3000 7400
+	3000 6700 3000 6750
 Wire Wire Line
 	3300 6850 3300 7400
 Wire Wire Line
-	2150 6700 2150 7250
+	2150 6700 2150 6750
 Connection ~ 2150 7250
 Wire Wire Line
-	1900 6750 2400 6750
+	1900 6750 2150 6750
 Wire Wire Line
 	2400 6750 2400 6700
 Connection ~ 2150 6750
@@ -2021,27 +1989,27 @@ Wire Wire Line
 Wire Wire Line
 	2750 6700 2750 6750
 Wire Wire Line
-	2750 6750 3250 6750
+	2750 6750 3000 6750
 Wire Wire Line
 	3250 6750 3250 6700
 Connection ~ 3000 6750
 Wire Wire Line
 	1900 6400 1900 6350
 Wire Wire Line
-	1900 6350 2400 6350
+	1900 6350 2150 6350
 Wire Wire Line
 	2400 6350 2400 6400
 Wire Wire Line
-	2150 6100 2150 6400
+	2150 6100 2150 6200
 Connection ~ 2150 6350
 Wire Wire Line
 	2750 6400 2750 6350
 Wire Wire Line
-	2750 6350 3250 6350
+	2750 6350 3000 6350
 Wire Wire Line
 	3250 6350 3250 6400
 Wire Wire Line
-	3000 6100 3000 6400
+	3000 6100 3000 6200
 Connection ~ 3000 6350
 Wire Wire Line
 	3000 6200 3050 6200
@@ -2060,12 +2028,12 @@ Connection ~ 3000 6200
 Wire Wire Line
 	10700 8150 10700 8050
 Wire Wire Line
-	1700 6850 3400 6850
+	1700 6850 3300 6850
 Connection ~ 3000 7050
 Wire Wire Line
 	1700 7050 3000 7050
 Wire Wire Line
-	9050 7850 9350 7850
+	9050 7850 9250 7850
 Wire Wire Line
 	9350 8900 9250 8900
 Wire Wire Line
@@ -2075,9 +2043,9 @@ Wire Wire Line
 	9350 8200 9250 8200
 Connection ~ 9250 8200
 Wire Wire Line
-	10250 7850 10550 7850
+	10250 7850 10350 7850
 Wire Wire Line
-	10350 7850 10350 9250
+	10350 7850 10350 8200
 Wire Wire Line
 	10350 9250 10250 9250
 Wire Wire Line
@@ -2101,7 +2069,7 @@ Connection ~ 9250 8900
 Wire Wire Line
 	9250 9250 9350 9250
 Wire Wire Line
-	9250 7850 9250 9250
+	9250 7850 9250 8200
 Wire Wire Line
 	15250 1750 15400 1750
 Connection ~ 3300 6850
@@ -2114,21 +2082,21 @@ Wire Wire Line
 Wire Wire Line
 	7900 8250 7900 8100
 Wire Wire Line
-	700  9200 1350 9200
+	700  9200 950  9200
 Wire Wire Line
-	1950 9200 2400 9200
+	1950 9200 2300 9200
 Wire Wire Line
 	1650 9500 1650 9700
 Wire Wire Line
-	1750 1850 1750 1950
+	1750 1850 1750 1900
 Wire Wire Line
-	1450 1650 1550 1650
+	1450 1650 1500 1650
 Wire Wire Line
 	1550 1450 1550 1250
 Wire Wire Line
 	2150 1550 2200 1550
 Wire Wire Line
-	1750 1900 2050 1900
+	1750 1900 1850 1900
 Wire Wire Line
 	2050 1900 2050 1850
 Connection ~ 1750 1900
@@ -2139,17 +2107,17 @@ Wire Wire Line
 	1950 1850 1950 1900
 Connection ~ 1950 1900
 Wire Wire Line
-	2500 1550 2750 1550
+	2500 1550 2600 1550
 Wire Wire Line
 	2700 1750 2750 1750
 Wire Wire Line
 	3450 1650 3350 1650
 Wire Wire Line
-	2950 2050 2950 1950
+	2950 2050 2950 2000
 Wire Wire Line
 	3050 1950 3050 2000
 Wire Wire Line
-	2950 2000 3250 2000
+	2950 2000 3050 2000
 Connection ~ 2950 2000
 Wire Wire Line
 	3150 2000 3150 1950
@@ -2158,19 +2126,19 @@ Wire Wire Line
 	3250 2000 3250 1950
 Connection ~ 3150 2000
 Wire Wire Line
-	4250 2350 5000 2350
+	4250 2350 4350 2350
 Wire Wire Line
-	2200 2250 3650 2250
+	2200 2250 2700 2250
 Wire Wire Line
-	3250 2450 3650 2450
+	3250 2450 3450 2450
 Wire Wire Line
 	3850 2050 3850 2000
 Wire Wire Line
-	3850 2750 3850 2650
+	3850 2750 3850 2700
 Wire Wire Line
 	3950 2650 3950 2700
 Wire Wire Line
-	3850 2700 4150 2700
+	3850 2700 3950 2700
 Connection ~ 3850 2700
 Wire Wire Line
 	4050 2700 4050 2650
@@ -2183,13 +2151,13 @@ Wire Wire Line
 Wire Wire Line
 	1750 2900 1750 2850
 Wire Wire Line
-	1450 3300 1550 3300
+	1450 3300 1500 3300
 Wire Wire Line
 	2200 3200 2150 3200
 Wire Wire Line
-	1750 3600 1750 3500
+	1750 3600 1750 3550
 Wire Wire Line
-	1750 3550 2050 3550
+	1750 3550 1850 3550
 Wire Wire Line
 	1850 3550 1850 3500
 Connection ~ 1750 3550
@@ -2200,15 +2168,15 @@ Wire Wire Line
 	2050 3550 2050 3500
 Connection ~ 1950 3550
 Wire Wire Line
-	2500 3200 2750 3200
+	2500 3200 2600 3200
 Wire Wire Line
 	2700 3400 2750 3400
 Wire Wire Line
 	3450 3300 3350 3300
 Wire Wire Line
-	2950 3600 2950 3700
+	2950 3600 2950 3650
 Wire Wire Line
-	2950 3650 3250 3650
+	2950 3650 3050 3650
 Wire Wire Line
 	3050 3650 3050 3600
 Connection ~ 2950 3650
@@ -2223,9 +2191,9 @@ Wire Wire Line
 Wire Wire Line
 	4250 4000 4550 4000
 Wire Wire Line
-	3850 4400 3850 4300
+	3850 4400 3850 4350
 Wire Wire Line
-	3850 4350 4150 4350
+	3850 4350 3950 4350
 Wire Wire Line
 	3950 4350 3950 4300
 Connection ~ 3850 4350
@@ -2236,9 +2204,9 @@ Wire Wire Line
 	4150 4350 4150 4300
 Connection ~ 4050 4350
 Wire Wire Line
-	2200 3900 3650 3900
+	2200 3900 2700 3900
 Wire Wire Line
-	3250 4100 3650 4100
+	3250 4100 3450 4100
 NoConn ~ 6250 1750
 NoConn ~ 6250 3450
 NoConn ~ 6250 3550
@@ -2321,4 +2289,214 @@ NoConn ~ 3700 9750
 NoConn ~ 4300 7700
 NoConn ~ 900  6650
 NoConn ~ 3300 8300
+Wire Wire Line
+	10550 950  10650 950 
+Wire Wire Line
+	10650 950  10750 950 
+Wire Wire Line
+	10750 950  10850 950 
+Wire Wire Line
+	10850 950  10950 950 
+Wire Wire Line
+	10550 7050 10550 7100
+Wire Wire Line
+	10650 7050 10750 7050
+Wire Wire Line
+	10750 7050 10850 7050
+Wire Wire Line
+	6000 3050 6250 3050
+Wire Wire Line
+	6000 2550 6250 2550
+Wire Wire Line
+	5400 3050 5400 3150
+Wire Wire Line
+	10450 950  10550 950 
+Wire Wire Line
+	2450 10300 2750 10300
+Wire Wire Line
+	2150 10300 2450 10300
+Wire Wire Line
+	1850 10300 2150 10300
+Wire Wire Line
+	1550 10300 1700 10300
+Wire Wire Line
+	950  10300 1250 10300
+Wire Wire Line
+	1250 10300 1550 10300
+Wire Wire Line
+	2450 10900 2750 10900
+Wire Wire Line
+	2150 10900 2450 10900
+Wire Wire Line
+	1850 10900 2150 10900
+Wire Wire Line
+	1550 10900 1700 10900
+Wire Wire Line
+	1250 10900 1550 10900
+Wire Wire Line
+	950  10900 1250 10900
+Wire Wire Line
+	1700 10900 1850 10900
+Wire Wire Line
+	1700 10300 1850 10300
+Wire Wire Line
+	700  9200 700  9250
+Wire Wire Line
+	950  9200 1350 9200
+Wire Wire Line
+	3800 9350 4100 9350
+Wire Wire Line
+	4100 9350 4200 9350
+Wire Wire Line
+	4250 9550 4600 9550
+Wire Wire Line
+	3950 9650 4700 9650
+Wire Wire Line
+	4600 9550 4700 9550
+Wire Wire Line
+	6150 10600 6350 10600
+Wire Wire Line
+	6350 10600 6650 10600
+Wire Wire Line
+	6150 10200 6350 10200
+Wire Wire Line
+	6350 10200 6650 10200
+Wire Wire Line
+	5400 2550 5400 3050
+Wire Wire Line
+	5400 2250 5400 2550
+Wire Wire Line
+	4650 6750 4650 6900
+Wire Wire Line
+	4650 6450 4650 6750
+Wire Wire Line
+	3450 2450 3650 2450
+Wire Wire Line
+	5400 2000 5400 2250
+Wire Wire Line
+	5950 1750 5950 2050
+Wire Wire Line
+	2600 1550 2750 1550
+Wire Wire Line
+	2700 2250 3450 2250
+Wire Wire Line
+	1500 1650 1550 1650
+Wire Wire Line
+	3450 2250 3650 2250
+Wire Wire Line
+	4550 1750 4600 1750
+Wire Wire Line
+	4550 1750 4550 3600
+Wire Wire Line
+	3450 4100 3650 4100
+Wire Wire Line
+	2600 3200 2750 3200
+Wire Wire Line
+	2700 3900 3450 3900
+Wire Wire Line
+	1500 3300 1550 3300
+Wire Wire Line
+	3450 3900 3650 3900
+Wire Wire Line
+	4350 2350 5000 2350
+Wire Wire Line
+	4550 4000 4550 5050
+Wire Wire Line
+	2300 9200 2400 9200
+Wire Wire Line
+	5200 8400 5200 8600
+Wire Wire Line
+	5200 8200 5200 8400
+Wire Wire Line
+	5200 8600 5200 8650
+Wire Wire Line
+	850  9650 950  9650
+Wire Wire Line
+	1800 7350 1800 7550
+Wire Wire Line
+	1800 7150 1800 7350
+Wire Wire Line
+	1800 7550 1800 7600
+Wire Wire Line
+	1100 1650 1100 1750
+Wire Wire Line
+	1100 3300 1100 3400
+Wire Wire Line
+	2150 7250 2700 7250
+Wire Wire Line
+	2150 6750 2150 7250
+Wire Wire Line
+	2150 6750 2400 6750
+Wire Wire Line
+	3000 6750 3000 7050
+Wire Wire Line
+	3000 6750 3250 6750
+Wire Wire Line
+	2150 6350 2400 6350
+Wire Wire Line
+	2150 6350 2150 6400
+Wire Wire Line
+	3000 6350 3250 6350
+Wire Wire Line
+	3000 6350 3000 6400
+Wire Wire Line
+	2150 6200 2150 6350
+Wire Wire Line
+	3000 6200 3000 6350
+Wire Wire Line
+	3000 7050 3000 7400
+Wire Wire Line
+	9250 8550 9250 8900
+Wire Wire Line
+	9250 8200 9250 8550
+Wire Wire Line
+	10350 8900 10350 9250
+Wire Wire Line
+	10350 8550 10350 8900
+Wire Wire Line
+	10350 8200 10350 8550
+Wire Wire Line
+	9250 7850 9350 7850
+Wire Wire Line
+	10350 7850 10550 7850
+Wire Wire Line
+	9250 8900 9250 9250
+Wire Wire Line
+	3300 6850 3400 6850
+Wire Wire Line
+	1750 1900 1750 1950
+Wire Wire Line
+	1850 1900 1950 1900
+Wire Wire Line
+	1950 1900 2050 1900
+Wire Wire Line
+	2950 2000 2950 1950
+Wire Wire Line
+	3050 2000 3150 2000
+Wire Wire Line
+	3150 2000 3250 2000
+Wire Wire Line
+	3850 2700 3850 2650
+Wire Wire Line
+	3950 2700 4050 2700
+Wire Wire Line
+	4050 2700 4150 2700
+Wire Wire Line
+	1750 3550 1750 3500
+Wire Wire Line
+	1850 3550 1950 3550
+Wire Wire Line
+	1950 3550 2050 3550
+Wire Wire Line
+	2950 3650 2950 3700
+Wire Wire Line
+	3050 3650 3150 3650
+Wire Wire Line
+	3150 3650 3250 3650
+Wire Wire Line
+	3850 4350 3850 4300
+Wire Wire Line
+	3950 4350 4050 4350
+Wire Wire Line
+	4050 4350 4150 4350
 $EndSCHEMATC

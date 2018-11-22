@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(gps-timestamper-device)
+project("gps-timestamper-device")
 
 # This is to run all tests using 'make run-unit-tests' command.
 # Another way is simply run 'ctest -VV', but output is not colorized by default :(
@@ -16,5 +16,10 @@ if (NOT COMMAND run_test)
 	endmacro()
 endif()
 
+
 add_subdirectory(gps-timestamper)
-add_subdirectory(unit-tests)
+enable_testing()
+include(detect-gtest.cmake)
+if(GTEST_FOUND)
+    add_subdirectory(unit-tests)
+endif()

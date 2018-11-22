@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name gps-timestamper-rescue)(type Legacy)(uri ${KIPRJMOD}/gps-timestamper-rescue.lib)(options "")(descr ""))
+  (lib (name stm32)(type Legacy)(uri /home/dalexies/Projects/gps-timestamper/schematic/components/schematic/stm32.lib)(options "")(descr ""))
+  (lib (name ncp551)(type Legacy)(uri /home/dalexies/Projects/gps-timestamper/schematic/components/schematic/ncp551.lib)(options "")(descr ""))
+  (lib (name usblc6-4sc6)(type Legacy)(uri /home/dalexies/Projects/gps-timestamper/schematic/components/schematic/usblc6-4sc6.lib)(options "")(descr ""))
+)
