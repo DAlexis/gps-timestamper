@@ -10,7 +10,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * Copyright (c) 2018 STMicroelectronics International N.V. 
+  * Copyright (c) 2019 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -73,29 +73,26 @@ void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, LED_ch2_Pin|LED_ch3_Pin|LED_ch4_Pin|LED_ch4E5_Pin 
-                          |LED_ch6_Pin|LED_ch7_Pin|LED_ch0_Pin|LED_ch1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, LED_ch7_Pin|LED_0_Pin|LED_1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, LED_PPS_Pin|Sound_Pin|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, LED_2_Pin|LED_3_Pin|LED_4_Pin|Sound_pin_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PEPin PEPin PEPin PEPin 
-                           PEPin PEPin PEPin PEPin */
-  GPIO_InitStruct.Pin = LED_ch2_Pin|LED_ch3_Pin|LED_ch4_Pin|LED_ch4E5_Pin 
-                          |LED_ch6_Pin|LED_ch7_Pin|LED_ch0_Pin|LED_ch1_Pin;
+  /*Configure GPIO pins : PEPin PEPin PEPin */
+  GPIO_InitStruct.Pin = LED_ch7_Pin|LED_0_Pin|LED_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PDPin PDPin PD14 PD15 */
-  GPIO_InitStruct.Pin = LED_PPS_Pin|Sound_Pin|GPIO_PIN_14|GPIO_PIN_15;
+  /*Configure GPIO pins : PDPin PDPin PDPin PDPin */
+  GPIO_InitStruct.Pin = LED_2_Pin|LED_3_Pin|LED_4_Pin|Sound_pin_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

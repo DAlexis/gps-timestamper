@@ -17,11 +17,11 @@
 class PrecisionTimer
 {
 public:
-	using IRQSignalCaptureCallback = std::function<void(double time, uint32_t oneSecPeriod, uint32_t signalDelay)>;
+    using IRQSignalCaptureCallback = std::function<void(bool hasTiming, uint32_t oneSecPeriod, uint32_t signalDelay)>;
 	using IRQPPSCaptureCallback = std::function<void()>;
 
 	enum class CaptureSource {
-		GPS, signal
+        PPS, signal
 	};
 
 	PrecisionTimer(TIM_HandleTypeDef* htim, IOutputMessagesReceiver& outputReceiver);
@@ -45,6 +45,13 @@ private:
 
 	IRQSignalCaptureCallback m_signalCallback = nullptr;
 	IRQPPSCaptureCallback m_ppsCallback = nullptr;
+};
+
+class OutputGPSDisconnect : public IOutputMessage
+{
+public:
+    std::string str() const override;
+private:
 };
 
 

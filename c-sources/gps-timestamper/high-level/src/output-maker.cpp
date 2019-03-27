@@ -29,14 +29,13 @@ bool OutputMaker::receive(const IOutputMessage* msg)
 		return false;
 	}
 	m_queue.pushBack(msg);
-	return true;
+    return true;
 }
 
 bool OutputMaker::receiveFromISR(const IOutputMessage* msg)
 {
 	if (m_queue.sizeFromISR() >= QueueMaxSize-1)
 	{
-
 		delete msg;
 
 		if (m_queue.sizeFromISR() == QueueMaxSize-1)
@@ -45,7 +44,7 @@ bool OutputMaker::receiveFromISR(const IOutputMessage* msg)
 		return false;
 	}
 	m_queue.pushBackFromISR(msg);
-	return true;
+    return true;
 }
 
 void OutputMaker::makeOutputLoop()

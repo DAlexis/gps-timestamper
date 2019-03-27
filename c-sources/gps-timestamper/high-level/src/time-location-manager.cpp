@@ -1,4 +1,5 @@
 #include "time-location-manager.hpp"
+#include <sstream>
 
 TimeLocationManager::TimeLocationManager(
 		NMEAReceiver& nmea,
@@ -49,4 +50,21 @@ void TimeLocationManager::IRQPPS()
 {
 	m_dt++;
 	m_wasPPS = true;
+}
+
+
+OutputPPS::OutputPPS(const Position& pos, const DateTime& dt) :
+        m_pos(pos), m_dt(dt)
+{
+
+}
+
+std::string OutputPPS::str() const
+{
+    std::ostringstream oss;
+    oss << "{event: \"PPS\", "
+        << "pos: " << m_pos.str()
+        << ", time_round: " << m_dt.str()
+        << "}";
+    return oss.str();
 }

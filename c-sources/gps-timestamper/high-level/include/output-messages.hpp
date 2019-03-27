@@ -29,49 +29,14 @@ public:
 	virtual bool receiveFromISR(const IOutputMessage* msg) = 0;
 };
 
-class OutputRegisteredImpulse : public IOutputMessage
-{
-public:
-	OutputRegisteredImpulse(
-			const Position& pos,
-			const DateTime& dt,
-			uint32_t lastSecondPeriod,
-			uint32_t signalDelay);
-	std::string str() const override;
-
-private:
-	const Position m_pos;
-	const DateTime m_dt;
-	uint32_t m_lastSecondPeriod;
-	uint32_t m_signalDelay;
-};
-
-class OutputPPS : public IOutputMessage
-{
-public:
-	OutputPPS(const Position& pos, const DateTime& dt);
-
-	std::string str() const override;
-private:
-	const Position m_pos;
-	const DateTime m_dt;
-};
-
 class OutputDebug : public IOutputMessage
 {
 public:
-	OutputDebug(const std::string& msg);
+    OutputDebug(const std::string& msg);
 
-	std::string str() const override;
+    std::string str() const override;
 private:
-	const std::string m_msg;
-};
-
-class OutputGPSDisconnect : public IOutputMessage
-{
-public:
-	std::string str() const override;
-private:
+    const std::string m_msg;
 };
 
 class OutputQueueOverflow : public IOutputMessage

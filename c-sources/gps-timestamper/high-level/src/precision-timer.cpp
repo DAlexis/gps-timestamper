@@ -57,32 +57,38 @@ void PrecisionTimer::setPPSCaptureCallback(IRQPPSCaptureCallback callback)
 
 void PrecisionTimer::captureIRQHandler(CaptureSource source, uint32_t value)
 {
+
 	switch(source)
 	{
-	case CaptureSource::GPS:
-		m_prevGPS = m_lastGPS;
+    case CaptureSource::PPS:
+        m_prevGPS = m_lastGPS;
 		m_lastGPS = value;
 		m_gpsCount++;
 		if (m_ppsCallback)
-			m_ppsCallback();
-		break;
+            m_ppsCallback();
+        break;
 	case CaptureSource::signal:
-		if (m_gpsCount < 2)
+        HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
+        if (m_gpsCount < 2)
+            if (m_signalCallback)
+                m_signalCallback(false, 0, 0);
 			break;
 
 		// We have unsigned arithmetics so we will get always valid positive numbers below
 		uint32_t gpsPeriod   = m_lastGPS - m_prevGPS;
 		uint32_t signalDelay = value - m_lastGPS;
-		double fractionalSeconds = ( (double) signalDelay) / ( (double) gpsPeriod);
-		if (fractionalSeconds <= 1.0)
+        //double fractionalSeconds = ( (double) signalDelay) / ( (double) gpsPeriod);
+        if (signalDelay <= gpsPeriod)
 		{
 			// We have valid time
 			if (m_signalCallback)
-				m_signalCallback(fractionalSeconds, gpsPeriod, signalDelay);
+                m_signalCallback(true, gpsPeriod, signalDelay);
 		} else {
 			// We had no GPS pulses for a time > 1 sec
 			m_gpsCount = 0;
-		}
+            if (m_signalCallback)
+                m_signalCallback(false, 0, 0);
+        }
 		break;
 	}
 }
@@ -100,7 +106,12 @@ extern "C" {
 			if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
 				precisionTimerConnectedToInterrupt->captureIRQHandler(PrecisionTimer::CaptureSource::signal, htim->Instance->CCR1);
 			else if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2)
-				precisionTimerConnectedToInterrupt->captureIRQHandler(PrecisionTimer::CaptureSource::GPS, htim->Instance->CCR2);
+                precisionTimerConnectedToInterrupt->captureIRQHandler(PrecisionTimer::CaptureSource::PPS, htim->Instance->CCR2);
 		}
 	}
+}
+
+std::string OutputGPSDisconnect::str() const
+{
+    return std::string("{event: \"PPS disconnect\"}");
 }

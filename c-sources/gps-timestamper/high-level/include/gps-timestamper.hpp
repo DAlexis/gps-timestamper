@@ -14,9 +14,12 @@
 #include "timestamp-collector.hpp"
 #include "output-maker.hpp"
 #include "time-location-manager.hpp"
+#include "treshold-controller.hpp"
+#include "leds.hpp"
 
 extern UART_HandleTypeDef huart3;
 extern TIM_HandleTypeDef htim2;
+extern DAC_HandleTypeDef hdac;
 
 class GPSTimestamper
 {
@@ -34,6 +37,8 @@ private:
 
 	TimeLocationManager m_timeLocMgr{m_nmea, m_precTimer, m_outputMaker};
 	TimestampCollector m_collector{m_timeLocMgr, &m_precTimer, m_outputMaker};
+    ThresholdController m_tresholdController{&hdac};
+    Leds m_leds;
 };
 
 #endif /* HIGH_LEVEL_INCLUDE_GPS_TIMESTAMPER_HPP_ */

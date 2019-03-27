@@ -74,3 +74,8 @@ std::string toString(double value, unsigned int precision)
 	double2str(buf, value, precision, 20);
 	return std::string(buf);
 }
+
+std::string toString(bool value)
+{
+    return value ? "true" : "false";
+}

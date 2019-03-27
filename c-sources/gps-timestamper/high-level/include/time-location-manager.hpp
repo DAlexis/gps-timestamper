@@ -44,9 +44,16 @@ private:
 };
 
 
+class OutputPPS : public IOutputMessage
+{
+public:
+    OutputPPS(const Position& pos, const DateTime& dt);
 
-
-
+    std::string str() const override;
+private:
+    const Position m_pos;
+    const DateTime m_dt;
+};
 
 
 #endif /* GPS_TIMESTAMPER_HIGH_LEVEL_INCLUDE_TIME_LOCATION_MANAGER_HPP_ */

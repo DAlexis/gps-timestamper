@@ -29,9 +29,26 @@ void GPSTimestamper::run()
 	m_timeLocMgr.run();
 	m_outputMaker.run();
 	//m_collector.run();
+    // Some debug code here for triangle ref signal generation
+    float tmp = 1e-4f;
+    float d = 1e-6f;
+    m_leds.ledOn(1);
 	for (;;)
     {
 		m_precTimer.checkForGPSDisconnect();
+        m_tresholdController.setCh0(tmp);
+        tmp += d;
+        if (tmp >= 1.0f)
+        {
+            d = -d;
+            tmp += d;
+            m_leds.ledToggle(0);
+        }
+        if (tmp <= 0.0f)
+        {
+            d = -d;
+            tmp += d;
+        }
 	}
 }
 

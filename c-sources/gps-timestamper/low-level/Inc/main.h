@@ -88,16 +88,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_ch2_Pin GPIO_PIN_2
-#define LED_ch2_GPIO_Port GPIOE
-#define LED_ch3_Pin GPIO_PIN_3
-#define LED_ch3_GPIO_Port GPIOE
-#define LED_ch4_Pin GPIO_PIN_4
-#define LED_ch4_GPIO_Port GPIOE
-#define LED_ch4E5_Pin GPIO_PIN_5
-#define LED_ch4E5_GPIO_Port GPIOE
-#define LED_ch6_Pin GPIO_PIN_6
-#define LED_ch6_GPIO_Port GPIOE
 #define Signal_Pin GPIO_PIN_0
 #define Signal_GPIO_Port GPIOA
 #define PPS_Pin GPIO_PIN_1
@@ -112,10 +102,14 @@ void Error_Handler(void);
 #define DAC_treshold_47_GPIO_Port GPIOA
 #define LED_ch7_Pin GPIO_PIN_7
 #define LED_ch7_GPIO_Port GPIOE
-#define LED_PPS_Pin GPIO_PIN_12
-#define LED_PPS_GPIO_Port GPIOD
-#define Sound_Pin GPIO_PIN_13
-#define Sound_GPIO_Port GPIOD
+#define LED_2_Pin GPIO_PIN_12
+#define LED_2_GPIO_Port GPIOD
+#define LED_3_Pin GPIO_PIN_13
+#define LED_3_GPIO_Port GPIOD
+#define LED_4_Pin GPIO_PIN_14
+#define LED_4_GPIO_Port GPIOD
+#define Sound_pin_Pin GPIO_PIN_15
+#define Sound_pin_GPIO_Port GPIOD
 #define JSON_OUTPUT_USART1_TX_Pin GPIO_PIN_9
 #define JSON_OUTPUT_USART1_TX_GPIO_Port GPIOA
 #define JSON_OUTPUT_USART1_RX_Pin GPIO_PIN_10
@@ -136,10 +130,10 @@ void Error_Handler(void);
 #define Sig_ch6_GPIO_Port GPIOD
 #define Sig_ch7_Pin GPIO_PIN_7
 #define Sig_ch7_GPIO_Port GPIOD
-#define LED_ch0_Pin GPIO_PIN_0
-#define LED_ch0_GPIO_Port GPIOE
-#define LED_ch1_Pin GPIO_PIN_1
-#define LED_ch1_GPIO_Port GPIOE
+#define LED_0_Pin GPIO_PIN_0
+#define LED_0_GPIO_Port GPIOE
+#define LED_1_Pin GPIO_PIN_1
+#define LED_1_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
